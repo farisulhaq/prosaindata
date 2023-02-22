@@ -329,6 +329,11 @@ title="Print to PDF"
     <nav id="bd-toc-nav" aria-label="Page">
         <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hasil">
+   Hasil
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#twitter">
    Twitter
   </a>
@@ -387,6 +392,11 @@ title="Print to PDF"
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#hasil">
+   Hasil
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#twitter">
    Twitter
   </a>
@@ -437,6 +447,10 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="crawling-data-twitter-dan-web">
 <h1>Crawling Data Twitter dan Web<a class="headerlink" href="#crawling-data-twitter-dan-web" title="Permalink to this headline">#</a></h1>
+<div class="section" id="hasil">
+<h2>Hasil<a class="headerlink" href="#hasil" title="Permalink to this headline">#</a></h2>
+<p><a class="reference external" href="https://drive.google.com/drive/folders/1-5qgX_yas_K-pkFDEuWH9uCgur8ydpnQ?usp=sharing">link drive hasil crawling</a></p>
+</div>
 <div class="section" id="twitter">
 <h2>Twitter<a class="headerlink" href="#twitter" title="Permalink to this headline">#</a></h2>
 <div class="section" id="snscrape">
@@ -475,8 +489,8 @@ title="Print to PDF"
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweet</span> <span class="o">=</span> <span class="n">tweet_scrape</span><span class="p">(</span><span class="s1">&#39;capres2024 AND ganjarpranowo&#39;</span><span class="p">)</span>
-<span class="n">tweet</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;ganjarScrape.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tweet</span> <span class="o">=</span> <span class="n">tweet_scrape</span><span class="p">(</span><span class="s1">&#39;capres2024 AND puanmaharani&#39;</span><span class="p">)</span>
+<span class="n">tweet</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;puanScrape.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -492,152 +506,69 @@ title="Print to PDF"
 <h3>Twint<a class="headerlink" href="#twint" title="Permalink to this headline">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="o">=</span> <span class="o">!</span>pip3 uninstall twint <span class="o">&amp;&amp;</span> pip3 install twint <span class="o">&amp;&amp;</span> pip3 install --user --upgrade git+https://github.com/twintproject/twint.git@origin/master#egg<span class="o">=</span>twint
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># _= !pip3 uninstall twint -y &amp;&amp; pip3 install twint &amp;&amp; pip3 install --user --upgrade git+https://github.com/twintproject/twint.git@origin/master#egg=twint</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="o">=</span> <span class="o">!</span>pip install nest_asyncio
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># _= !pip install nest_asyncio</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">twint</span>
-<span class="kn">import</span> <span class="nn">nest_asyncio</span>
-<span class="n">nest_asyncio</span><span class="o">.</span><span class="n">apply</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import twint</span>
+<span class="c1"># import nest_asyncio</span>
+<span class="c1"># nest_asyncio.apply()</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">c</span> <span class="o">=</span> <span class="n">twint</span><span class="o">.</span><span class="n">Config</span><span class="p">()</span>
-<span class="n">c</span><span class="o">.</span><span class="n">Search</span> <span class="o">=</span> <span class="s1">&#39;#capres2024 AND #ganjarpranowo&#39;</span>
-<span class="n">c</span><span class="o">.</span><span class="n">Lang</span> <span class="o">=</span> <span class="s1">&#39;id&#39;</span>
-<span class="n">c</span><span class="o">.</span><span class="n">Limit</span> <span class="o">=</span> <span class="mi">1000</span>
-<span class="c1"># c.Since = &quot;2019-01-01&quot;</span>
-<span class="c1"># c.Until = &quot;2022-01-01&quot;</span>
-<span class="n">c</span><span class="o">.</span><span class="n">Pandas</span> <span class="o">=</span> <span class="kc">True</span>
-<span class="n">twint</span><span class="o">.</span><span class="n">run</span><span class="o">.</span><span class="n">Search</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1627593902260727810 2023-02-20 09:00:00 +0000 &lt;GanjaranApp&gt; Refleksi sejarah Bung Karno menjadi spirit perjuangan untuk masa depan Indonesia. Maju terus @ganjarpranowo sebagai Presiden Indonesia 2024 demi masa depan Indonesia Maju ✊  #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/FP9fQdy6nW
-1627503307253248001 2023-02-20 03:00:00 +0000 &lt;GanjaranApp&gt; &quot;Pejabat yang gemar nonton teater sehat kejiwaannya. Karena menjadi kaidah juga dalam teater sebagai seni mengkritik penguasa&quot; Butet Kertaredjasa  #seniman #seni #teater #butet #butetkartredjasa #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024  https://t.co/MdW5FVyJUR
-1627486484013150208 2023-02-20 01:53:09 +0000 &lt;beritafaktaind&gt; Ganjar Pranowo Cinta Budaya Tanah Air. #ganjarpranowo #budaya #budayaindonesia #pemilu2024 #capres2024 #beritafaktaind  Bu Mega, Indomie, Kakao, Minum, Iphone 14, Rusia  https://t.co/WhqfL1WHml
-1627231520258760704 2023-02-19 09:00:01 +0000 &lt;GanjaranApp&gt; “Dengan menonton teater, orang akan terasah perasaannya sehingga menjadikan peka dan tidak pekok.” @ganjarpranowo   #seniman #seni #teater #butet #butetkartredjasa #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024  https://t.co/oyohxHQb1E
-1627201315368583170 2023-02-19 07:00:00 +0000 &lt;GanjaranApp&gt; &quot;Kita sebagai relawan tidak boleh kecewa. Karena perjuangan kita tanpa pamrih&quot; Dzaky Aviastro - Sekretaris Jenderal DAG (Dukung Aja Ganjar)  #DAG #dukungajaganjar #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/KNjYXsv1cU
-1627138817793871873 2023-02-19 02:51:39 +0000 &lt;beritafaktaind&gt; Diskusi untuk PRESTASI, Ganjar Pranowo dihati RAKYAT. #ganjarpranowo #indonesia #pemilu2024 #capres2024 #merakyat  https://t.co/IsWaqmiakV
-1626929530089922560 2023-02-18 13:00:01 +0000 &lt;GanjaranApp&gt; &quot;Bayangkan! Kerja organ2 relawan di luar partai politik utk menaikan elektabilitas @ganjarpranowo luar biasa. Inilah yg tdk dimiliki bakal capres lain&quot; Kiai Hendrik Kurniawan (Ketum Balad)  #elektabilitascapres2024 #ganjarpranowo #ganjarsiap #ganjaranapp #capres2024 #ganjarkita  https://t.co/0v1bGu2Z7E
-1626899325765951488 2023-02-18 11:00:00 +0000 &lt;GanjaranApp&gt; Perjuangan @ganjarpranowo serta gerakan relawannya ini menjadi bukti nyata bahwa di negara kita masih ada orang yang mau memikirkan kemajuan bangsa.  #SDG #santridukungganjar #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/7AqlUEnkur
-1626887882928697345 2023-02-18 10:14:32 +0000 &lt;Lambe_Nggambleh&gt; CAPRES UNGGULAN 2024 mana pilihanmu? #Capres2024 #Pilpres2024 #pemilu2024  #GanjarPranowo  #relawanganjar   https://t.co/Qj6BHpWCIC  https://t.co/1qeGKfvxzk
-1626869132032442370 2023-02-18 09:00:01 +0000 &lt;GanjaranApp&gt; “Saya berharap @ganjarpranowo berkenan brkunjung k Korsel tahun ini, karena Jateng punya sister province yaitu Chungcheongbuk-do&quot; Lee Sang Deok (Duta Besar Korea Selatan untuk Indonesia)  #Korea #dubeskorea #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #ekonomi #capres2024  https://t.co/epW2M4u4vS
-1626838930036297731 2023-02-18 07:00:00 +0000 &lt;GanjaranApp&gt; Rasanya, selalu saja ada cara bagi relawan @ganjarpranowo dlm memenuhi berbagai kebutuhan &amp;amp; keluhan masyarakat.   #kiai #ganjarpranowo #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/ov8qo189rO
-1626808730812571649 2023-02-18 05:00:00 +0000 &lt;GanjaranApp&gt; Gerakan @DPNsrikandi serta komunitas Rangkul Movement ini harus kita dukung dan lanjutkan. Demi keberlangsungan hidup yang lestari dan aman dari ancaman bencana.  #Srikandiganjar #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/67DlhSzauo
-1626778529521102848 2023-02-18 03:00:00 +0000 &lt;GanjaranApp&gt; Ada banyak profesi yang dapat dipilih dalam sektor pertanian,  jika kamu tertarik untuk menjadi petani milenial, ada banyak peluang yang bisa kamu jajaki.  Ayo menjadi petani milenial.  #Petani #milenial #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #ekonomi #capres2024  https://t.co/EnwVijZCIw
-1626775735317958658 2023-02-18 02:48:53 +0000 &lt;beritafaktaind&gt; Ganjar Pranowo dapat penghargaan lagi nich. #ganjarpranowo #kppi #indonesia #pemilu2024 #capres2024 #jawatengah  https://t.co/LpOABxZH9d
-1626506747837034496 2023-02-17 09:00:02 +0000 &lt;GanjaranApp&gt; Tahun 2024 semakin dekat dan semakin banyak nama yang beredar sebagai calon presiden. Namun, hasil survei elektabilitas menempatkan @ganjarpranowo teratas dan tak terbendung.  #Elektabilitas #surveicapres #capres2024 #pilpres2024 #ganjarpranowo #ganjarsiap #ganjaranapp  https://t.co/UiNKEe56uJ
-1626498323883642880 2023-02-17 08:26:33 +0000 &lt;GanjaranApp&gt; Tanpa safari politik, Ribuan Relawan @ganjarpranowo di Kediri Deklarasi Presiden 2024✊️  #ganjaranapp #ganjarpranowo #ganjarkita #DeklarasiGanjar2024 #ganjarkita #capres2024 #presiden2024 #relawanganjar #kediri  https://t.co/IfLaI6y25p
-1626446342665953280 2023-02-17 05:00:00 +0000 &lt;GanjaranApp&gt; Selain berita-berita tentang unggulnya elektabilitas Ganjar Pranowo menjelang Pemilu 2024, gerakan relawan pendukungnya juga terus bergema di seantero negeri.   #GanjaranBuruhBerjuang #gbb  #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024  https://t.co/LsCEKH9f2g
-1626442693269409792 2023-02-17 04:45:30 +0000 &lt;beritafaktaind&gt; Ganjar Pranowo BERHASIL majukan ekonomi PKL. #ganjarpranowo #pkl #ekonomi #indonesia #capres2024 #pemilu2024  https://t.co/Eg7e78SEeg
-1626416147158683650 2023-02-17 03:00:01 +0000 &lt;GanjaranApp&gt; Langkah @ganjarpranowo mengajak adik-adik dan juniornya agar berani mengambil risiko dalam bergerak. Optimis, maju. Yang muda yang berkarya, yang muda yang memimpin dunia.  #GMNI #pemuda #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024  https://t.co/Ha2SpD5SVO
-1626140240682573825 2023-02-16 08:43:40 +0000 &lt;kerjabarengGP&gt; Bukti kecintaan kepada pak @ganjarpranowo  #GanjarPranowo #kerjanyata #capres2024  https://t.co/8vT1j9lJJx
-1626042580176867329 2023-02-16 02:15:36 +0000 &lt;beritafaktaind&gt; Ganjar Pranowo punya darah WALI SONGO. #ganjarpranowo #walisongo #indonesia #capres2024 #pemilu2024  https://t.co/4Mi4012xdZ
-1625993359960739842 2023-02-15 23:00:01 +0000 &lt;GanjaranApp&gt; Semua melirik @ganjarpranowo sebagai calaon presiden paling diminati. Maka menunggu apalagi, bila semua sudah final ???  #KIB #KKIR #ganjarpranowo #ganjarsiap #ganjarkita #ganjaranapp #capres2024 #RelawanGanjarPranowo  https://t.co/K5XLpN4krT
-1625797069196894209 2023-02-15 10:00:01 +0000 &lt;GanjaranApp&gt; Kharisma @ganjarpranowo  tak terbantahkan, ia mampu membangun Jateng sebagai salah satu pusat investasi. Bahkan jiwa kepemimpinannya layak sebagai presiden Indonesia 2024 nanti.  #investasi #korea #presiden2024 #ganjarpranowo #ganjaranapp #ganjarkita #capres2024 #jateng #ekonomi  https://t.co/6hlGhqVTS0
-1625781973103919104 2023-02-15 09:00:02 +0000 &lt;GanjaranApp&gt; Puncak dingin bos 🥶  #elektabilitascapres #elektabilitaspilpres #Elektabilitas #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo #ChampionsLeague  #AntManAndTheWaspQuantumania  https://t.co/4kD3FyCwid
-1625776197492948993 2023-02-15 08:37:05 +0000 &lt;GanjaranApp&gt; #SuaraRelawan bersama @GunRomli : Terus Perjuangkan @ganjar_pranowo Presiden 2024.  Saksikan video lengkapnya hanya di youtube &quot;Ganjaran App&quot;  #ganjaranapp #gunromli #ganjarianspartan #ganjarkita #ganjarpranowo #presiden2024 #Capres2024  https://t.co/BAT6oTyKDR
-1625751770814349315 2023-02-15 07:00:01 +0000 &lt;GanjaranApp&gt; Kini, mesin politik dari seberang siap untuk digas. Waktu berdetak makin kencang. Maka, tidak ada salahnya Ibu ikut bergegas..  #pilpres2024 #PDIP #megawati #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/s1oaF0NlYj
-1625691371297460224 2023-02-15 03:00:01 +0000 &lt;GanjaranApp&gt; &quot;KGBN trs bersinergi melakukn konsolidasi struktur organ hingga 38 provinsi Indonesia. Tetp melakukn brbagai giat pelayann sosial yg menyentuh langsung akar rumput&quot; Juliant Palar - Ketum KGBN  #kgbn #kawanganjarbersatunasional #ganjarpranowo  #ganjaranapp #ganjarkita #capres2024  https://t.co/50QwAGAMJi
-1625680378953609217 2023-02-15 02:16:20 +0000 &lt;beritafaktaind&gt; Ganjar Pranowo sukses turunkan angka STUNTING di Jawa Tengah. #ganjarpranowo #stunting #bkkbn #jateng #jawatengah #indonesia #capres2024 #pemilu2024  https://t.co/D1X0tJHcnR
-1625419582675759105 2023-02-14 09:00:02 +0000 &lt;GanjaranApp&gt; Semangat relawan @ganjarpranowo tak terbentung, bahkan di Lampung 7 organ relawan sepakat berkongsi menyatukan visi dan misi.  &quot;Mati satu, tumbuh 1000&quot; Salam Perjuangan ✊  #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/JN8xWKuGlY
-1625389377571684355 2023-02-14 07:00:00 +0000 &lt;GanjaranApp&gt; Usaha @ganjarpranowo  dan relawan @orangmudaganjar perlu kita apresiasi. Komitmen keduanya dalam merawat kebudayaan sudah selayaknya juga kita dukung.   #orangmudaganjar #OMG #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/llo6D8yz0N
-1625359183024648192 2023-02-14 05:00:01 +0000 &lt;GanjaranApp&gt; &quot;Kepercayaan anak muda milenial itu kepada @ganjarpranowo lebih dilihat karena kepemimpinannya yang punya kapabilitas&quot; Gita Permata Siregar (Ketua Gundala)  #gundala #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/WnYTAeaDlE
-1625326871411068928 2023-02-14 02:51:37 +0000 &lt;beritafaktaind&gt; Bocil aja tau mana pemimpin yang BENER. #ganjarpranowo #ganjar #indonesia #pemilu2024 #capres2024 #jawatengah #jawatimur #jawabarat  https://t.co/btkRyBs10t
-1625298784426029056 2023-02-14 01:00:01 +0000 &lt;GanjaranApp&gt; Sudah menikmati kopi pagi kalian kawan-kawan ? Jangan lupa terus bersyukur dan jalani hari dengan senyuman 😊  #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/9hCbVMBkk9
-1625079542485504001 2023-02-13 10:28:50 +0000 &lt;politikonoha&gt; Miskin gagasan itu menyedihkan yaa ternyata.. @ganjarpranowo  #ganjarpranowo #relawanjokowi #GPmania #politik #politikindonesia #pilpres2024 #capres2024 #relawan #Deklarasi #miskingagasan  https://t.co/HaDQOVEYgV
-1625011891381624834 2023-02-13 06:00:00 +0000 &lt;GanjaranApp&gt; Para sopir truk telah mantap menambatkan hati mereka kepada Ganjar Pranowo . Bagi mereka, Ganjar adalah sosok yang mampu memperjuangkan nasib sopir truk lebih sejahtera lagi di masa mendatang.  #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/pmdy36YQdJ
-1624981691696574464 2023-02-13 04:00:00 +0000 &lt;GanjaranApp&gt; Aksi-aksi relawan @ganjarpranowo semakin menunjukkan pengabdiannya kepada masyarakat. Melakukan gerakan yang nyata, memberikan sumbangsihnya untuk kemaslahatan banyak orang.  #ganjarburuhberjuang #ganjarpranowo #ganjaranapp #ganjarkita #capres2024 #ekonomi #RelawanGanjarPranowo  https://t.co/G9FMoEFBdw
-1624955191371141120 2023-02-13 02:14:42 +0000 &lt;beritafaktaind&gt; JOKOWI = GANJAR PRANOWO. #ganjarpranowo #jokowi #indonesia #pemilu2024 #capres2024 #indonesiamaju  https://t.co/oVHYAVTl53
-1624701548201914371 2023-02-12 09:26:49 +0000 &lt;musniaKidd22&gt; Akhirnya tahu mana  yang benar murni mendukung, mana yang cuman setengah-setengah #GanjarPranowo #Indonesia #capres2024  https://t.co/rEVupL2rgP
-1624701436578918400 2023-02-12 09:26:22 +0000 &lt;musniaKidd22&gt; Relawan akan tetap terus bekerja ikhlas demi Ganjar Pranowo presiden 2024 #GanjarPranowo #Indonesia #capres2024  https://t.co/q7NX4UCfJb
-1624701338679648256 2023-02-12 09:25:59 +0000 &lt;musniaKidd22&gt; Gak ngaruh cuman GP mania yang mati #GanjarPranowo #Indonesia #capres2024  https://t.co/5UtcxnwSgr
-1624701264243355649 2023-02-12 09:25:41 +0000 &lt;musniaKidd22&gt; Mantap, relawan kompak mendukung Ganjar Pranowo #GanjarPranowo #Indonesia #capres2024  https://t.co/t8JZ1n0UNJ
-1624701177756794881 2023-02-12 09:25:20 +0000 &lt;musniaKidd22&gt; Ganjar Pranowo sangat pancasilais, tak akan gunakan politik identitas #GanjarPranowo #Indonesia #capres2024  https://t.co/AKSudN8Qo5
-1624664600665882624 2023-02-12 07:00:00 +0000 &lt;GanjaranApp&gt; &quot;Kaum milenial itu suka dengan tipe atau karakter pemimpin yang dekat dengan rakyat&quot; Piet Cintya Mawar (Ketua Milenial Bulaksumur Gaspoll)  #bulaksumur #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024  https://t.co/2bzyMmHkYH
-1624598656405106695 2023-02-12 02:37:57 +0000 &lt;beritafaktaind&gt; Kriteria Pemimpin INDONESIA ada pada sosok GANJAR PRANOWO. #ganjarpranowo #indonesia #pemilu2024 #capres2024 #jawatengah  https://t.co/vl9Dw1wqhm
-1624574008070119424 2023-02-12 01:00:01 +0000 &lt;GanjaranApp&gt; &quot;Selain ganteng secara fisik lebih disukai kaum milenial, Ganjar Pranowo juga adalah sosok yang nasionalis dan pancasilais&quot; Binyo (Sekretaris Jenderal @GPCenter2024 )  #gpcenter #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo #bungkarno  https://t.co/YyjymMJE9e
-1624302212326518787 2023-02-11 07:00:00 +0000 &lt;GanjaranApp&gt; &quot; @ganjarpranowo menganggap semua yg berada di Jateng, trmasuk komunitas pemuda Papua yg sedang kuliah harus diperhatikn. mereka menerima dengan hati terbuka&quot; Yanuar Mabel (Kornas Jaringan Loyalis Ganjar)  #ganjarpranowo #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/iqhN3QaMGI
-1624272015841497090 2023-02-11 05:00:00 +0000 &lt;GanjaranApp&gt; Semoga kecintaan para relawan tersebut dapat terus terjaga dan membantu membangun Indonesia yang lebih baik dan bermakna bagi seluruh rakyat Indonesia.  #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/E0feRkr8bW
-1624229027082027008 2023-02-11 02:09:11 +0000 &lt;beritafaktaind&gt; Ganjar Pranowo SICEPAT TANGGAP. #ganjarpranowo #indonesia #bencanaalam #pemilu2024 #capres2024 #jateng #jawatengah  https://t.co/IhWdoAzjlO
-1624211621366333441 2023-02-11 01:00:01 +0000 &lt;GanjaranApp&gt; Barisan pendukung @ganjarpranowo terus menunjukkan tajinya mulai dari sosial, pagelaran budaya, kegiatan keagamaan, pelatihan, hingga aksi berbagi semakin mewarnai upaya mereka dalam mengenalkan sosok Ganjar.  #sahabatjarwo #ganjarpranowo #ganjaranapp #ganjarkita #capres2024  https://t.co/SG5OCWa3Yq
-1624056787988086792 2023-02-10 14:44:46 +0000 &lt;nusabalicom&gt; Tak Ada Kepastian Pengusungan Ganjar jadi Capres, Relawan Ganjar Pranowo Mania Bubar  https://t.co/PFSCodMg2d #berita #nusabali #GanjarPranowo #capres2024 #pilpres2024 #pemilu2024
-1624043086849654784 2023-02-10 13:50:19 +0000 &lt;portalmediaid&gt; Bubarnya GP Mania Dinilai Rugikan Pencapresan Ganjar di Pilpres 2024  Baca Selengkapnya:  https://t.co/b8RmGdEcsA  #BeritaTerkini #media #Online #news #BreakingNews #GP #mania #rugikan #capres2024 #GanjarPranowo #Pilpres2024 #politik #Indonesia
-1623970036728872963 2023-02-10 09:00:03 +0000 &lt;GanjaranApp&gt; Relawan @Ganjarist_Ind terus merawat perjuangan mulia mereka. Apapun yang terjadi, tetap solid mendukung @ganjarpranowo di Pilpres 2024 untuk membawa Indonesia lebih baik di masa mendatang.  #Ganjarist #ganjarpranowo #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/HVGpSJFdSt
-1623939827061379072 2023-02-10 07:00:00 +0000 &lt;GanjaranApp&gt; &quot;Ganjar itu religius, nyantri dan berbudaya. Ia adalah pemimpin yang dalam kultur Sunda disebut “Pinilih”. Tidak bisa disetting. Terpilih secara alami&#39; Kyai Pipin Nur Afilail Ketua Umum SABUMI GANJAR  #ganjarpranowo #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/nQIfsisGqm
-1623931022663618560 2023-02-10 06:25:01 +0000 &lt;VideoTRIBUN&gt; Sempat Sebut &#39;The Next Jokowi&#39;, Kini GP Mania Tuding Ganjar Tak Punya Nyali: Kami Salah Menilai Selengkapnya:  https://t.co/J9s6dvLi6Q  #beritaterkini #beritaviral #GanjarPranowo #GPMania #capres2024 #thenextjokowi  https://t.co/ZEOcre4UK7
-1623879435983155201 2023-02-10 03:00:02 +0000 &lt;GanjaranApp&gt; &quot;Semoga para nelayan semakin bersemangat melaut, mencari nafkah untuk keluarganya.&quot; Miftahul Lutfi (Korwil Komunitas Nelayan Pesisir Dukung Ganjar Lampung)  #nelayan #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/z5NUVhD07j
-1623869448687083521 2023-02-10 02:20:21 +0000 &lt;beritafaktaind&gt; Stok beras di JATENG aman. #beras #berasbulog #jateng #jawatengah #ganjarpranowo #indonesia #pemilu2024 #capres2024  https://t.co/pLJk7UNq0R
-1623850471357313024 2023-02-10 01:04:56 +0000 &lt;difalavianka_&gt;  https://t.co/XlWwQ9wH1u  Dinilai bukan sosok yang tepat, Ganjar Pranowo ditinggal pendukungnya..  #capres2024 #GanjarPranowo #GPmania
-1623849227662274560 2023-02-10 01:00:00 +0000 &lt;GanjaranApp&gt; Seorang pemimpin yang baik tidak hanya memimpin dengan karisma dan kepemimpinan yang kuat, tetapi juga memiliki integritas dan visi jelas untuk memimpin negara ke arah yang lebih baik.   #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/PgojhbJ01r
-1623689805212299269 2023-02-09 14:26:30 +0000 &lt;KoncoAirlangga&gt; #AirlanggaHartarto #GolkarIndonesia #Jokowi #GanjarPranowo #AniesBaswedan #capres2024 HAARP Manggarai Childfree  https://t.co/JZ5M6l5ZGp
-1623607646426378240 2023-02-09 09:00:02 +0000 &lt;GanjaranApp&gt; Gerakan Relawan @orangmudaganjar tidak sebatas mengenalkan @ganjarpranowo sebagai #capres2024 . Mereka juga menunjukan eksistensinya dengan cara sosial, salahsatunya membangun jalan bagi masyarakat di NTT.  #orangmudaganjar #OMG #ganjarpranowo #ganjaranapp #ganjarkita  https://t.co/RGrfqP44RW
-1623577441393602560 2023-02-09 07:00:01 +0000 &lt;GanjaranApp&gt; &quot;Masyarakat harus diyakinkan bahwa yang bisa melanjutkan legacy pembangunan Presiden Jokowi hanya Ganjar Pranowo&quot; @Rinto_Pao  ( Ketum @TemanGanjar2705  )  #TemanGanjar #tegar #ganjarpranowo #ganjarsiap #ganjarkita #capres2024  https://t.co/ctyEkPJoo0
-1623547237757337601 2023-02-09 05:00:00 +0000 &lt;GanjaranApp&gt; Sebagai pemimpin @ganjarpranowo  selalu memperjuangkan kepentingan rakyat tak heran selalu berada di urutan pertama elektabilitas Calon Presiden 2024.  #elektabilitascapres #elektabilitaspilpres #elektabilitas #ganjarpranowo #ganjaranapp #ganjarkita #capres2024  https://t.co/Jb0llBJ8Xh
-1623508911910445056 2023-02-09 02:27:42 +0000 &lt;beritafaktaind&gt; Petani CINTA Ganjar Pranowo. #ganjarpranowo #indonesia #petani #pemilu2024 #capres2024  https://t.co/c5Zi0SbEFi
-1623250698518528004 2023-02-08 09:21:39 +0000 &lt;GanjaranApp&gt; Itu karenanya @GunRomli, sebagai ketum Ganjarian Spartan menyerukan perjuangan dengan ghirah untuk memenangkan @ganjarpranowo sebagai presiden 2024.  #ganjarpranowo #ganjarsiap #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/Db02pxFoWF
-1623216419600211968 2023-02-08 07:05:26 +0000 &lt;GanjaranApp&gt; Tekad mereka dalam mendukung @ganjarpranowo juga sebagai bentuk perwujudan memajukan pendidikan pesantren.   #pesantren #santri #ganjarpranowo #ganjaranapp #ganjarkita #capres2024 #RelawanGanjarPranowo  https://t.co/xjwdVHwCJP
-[!] No more data! Scraping will stop now.
-found 0 deleted tweets in this search.
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># c = twint.Config()</span>
+<span class="c1"># c.Search = &#39;#capres2024 AND #puanmaharani&#39;</span>
+<span class="c1"># c.Lang = &#39;id&#39;</span>
+<span class="c1"># c.Limit = 1000</span>
+<span class="c1"># # c.Since = &quot;2019-01-01&quot;</span>
+<span class="c1"># # c.Until = &quot;2022-01-01&quot;</span>
+<span class="c1"># c.Pandas = True</span>
+<span class="c1"># twint.run.Search(c)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Tweets_df</span> <span class="o">=</span> <span class="n">twint</span><span class="o">.</span><span class="n">storage</span><span class="o">.</span><span class="n">panda</span><span class="o">.</span><span class="n">Tweets_df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tweets_df = twint.storage.panda.Tweets_df</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">Tweets_df</span><span class="o">.</span><span class="n">columns</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;id&#39;, &#39;conversation_id&#39;, &#39;created_at&#39;, &#39;date&#39;, &#39;timezone&#39;, &#39;place&#39;,
-       &#39;tweet&#39;, &#39;language&#39;, &#39;hashtags&#39;, &#39;cashtags&#39;, &#39;user_id&#39;, &#39;user_id_str&#39;,
-       &#39;username&#39;, &#39;name&#39;, &#39;day&#39;, &#39;hour&#39;, &#39;link&#39;, &#39;urls&#39;, &#39;photos&#39;, &#39;video&#39;,
-       &#39;thumbnail&#39;, &#39;retweet&#39;, &#39;nlikes&#39;, &#39;nreplies&#39;, &#39;nretweets&#39;, &#39;quote_url&#39;,
-       &#39;search&#39;, &#39;near&#39;, &#39;geo&#39;, &#39;source&#39;, &#39;user_rt_id&#39;, &#39;user_rt&#39;,
-       &#39;retweet_id&#39;, &#39;reply_to&#39;, &#39;retweet_date&#39;, &#39;translate&#39;, &#39;trans_src&#39;,
-       &#39;trans_dest&#39;],
-      dtype=&#39;object&#39;)
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Tweets_df.columns</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
-    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">Tweets_df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;tweet&#39;</span><span class="p">:</span> <span class="n">Tweets_df</span><span class="p">[</span><span class="s1">&#39;tweet&#39;</span><span class="p">],</span>
-    <span class="s1">&#39;place&#39;</span><span class="p">:</span> <span class="n">Tweets_df</span><span class="p">[</span><span class="s1">&#39;place&#39;</span><span class="p">],</span>
-<span class="p">})</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df = pd.DataFrame({</span>
+<span class="c1">#     &#39;name&#39;: Tweets_df[&#39;name&#39;],</span>
+<span class="c1">#     &#39;tweet&#39;: Tweets_df[&#39;tweet&#39;],</span>
+<span class="c1">#     &#39;place&#39;: Tweets_df[&#39;place&#39;],</span>
+<span class="c1"># })</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;ganjarCapres.csv&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df.to_csv(&#39;ganjarCapres.csv&#39;)</span>
 </pre></div>
 </div>
 </div>
@@ -686,7 +617,7 @@ found 0 deleted tweets in this search.
     <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">)</span>
     <span class="n">soup</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">res</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
     <span class="n">contents</span> <span class="o">=</span> <span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;ol&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;pagination&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">findChildren</span><span class="p">(</span><span class="n">recursive</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">contents</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">contents</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">a</span><span class="p">[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
   <span class="k">def</span> <span class="nf">artikel_page</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">page</span><span class="p">):</span>
     <span class="n">res</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="si">}</span><span class="s1">/</span><span class="si">{</span><span class="n">page</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -705,8 +636,12 @@ found 0 deleted tweets in this search.
         <span class="n">cont</span> <span class="o">=</span> <span class="n">soup_data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="s1">&#39;content_journal&#39;</span><span class="p">})</span>
         <span class="c1"># ambil data</span>
         <span class="n">nama</span> <span class="o">=</span> <span class="n">cont</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">div</span><span class="o">.</span><span class="n">span</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39; : &#39;</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-        <span class="n">judul</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">cont</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">string</span><span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
-        <span class="n">abstrak</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="p">(</span><span class="n">cont</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">string</span><span class="p">)</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+        <span class="n">judul</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cont</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+        <span class="n">abstrak</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cont</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_text</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">())</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">abstrak</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+          <span class="n">abstrak</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">cont</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">findNext</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">stripped_strings</span><span class="p">)</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+        <span class="c1"># judul = str.join(&quot;&quot;, (cont.find(&#39;a&#39;, class_=&#39;title&#39;).string).splitlines()).capitalize()</span>
+        <span class="c1"># abstrak = str.join(&quot;&quot;, (cont.find(&#39;p&#39;).string).splitlines()).capitalize()</span>
         <span class="n">pta_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
             <span class="s1">&#39;Penulis&#39;</span> <span class="p">:</span> <span class="n">nama</span><span class="p">,</span>
             <span class="s1">&#39;Judul&#39;</span><span class="p">:</span> <span class="n">judul</span><span class="p">,</span>
@@ -737,6 +672,113 @@ found 0 deleted tweets in this search.
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyboardInterrupt</span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">19</span><span class="o">-</span><span class="mi">361</span><span class="n">c0ebdaa26</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">scPta</span><span class="o">.</span><span class="n">get_berita</span><span class="p">()</span>
+
+<span class="nn">&lt;ipython-input-17-0b6be22ab980&gt;</span> in <span class="ni">get_berita</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>       <span class="n">artikels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">artikel_page</span><span class="p">(</span><span class="n">pg</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>       <span class="k">for</span> <span class="n">artikel</span> <span class="ow">in</span> <span class="n">artikels</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">23</span>         <span class="n">respone</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">artikel</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;gray button&#39;</span><span class="p">)[</span><span class="s1">&#39;href&#39;</span><span class="p">])</span>
+<span class="g g-Whitespace">     </span><span class="mi">24</span>         <span class="n">soup_data</span> <span class="o">=</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">respone</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html.parser&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">25</span>         <span class="n">cont</span> <span class="o">=</span> <span class="n">soup_data</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">attrs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span><span class="s1">&#39;content_journal&#39;</span><span class="p">})</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> 
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;allow_redirects&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">76</span>     <span class="k">return</span> <span class="n">request</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span> 
+<span class="g g-Whitespace">     </span><span class="mi">78</span> 
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="c1"># cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="k">with</span> <span class="n">sessions</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">61</span>         <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> 
+<span class="g g-Whitespace">     </span><span class="mi">63</span> 
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span>         <span class="p">}</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span>         <span class="n">send_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">542</span>         <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prep</span><span class="p">,</span> <span class="o">**</span><span class="n">send_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span> 
+<span class="g g-Whitespace">    </span><span class="mi">544</span>         <span class="k">return</span> <span class="n">resp</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">653</span> 
+<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="c1"># Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">655</span>         <span class="n">r</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">656</span> 
+<span class="g g-Whitespace">    </span><span class="mi">657</span>         <span class="c1"># Total elapsed time of the request (approximately)</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">437</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">chunked</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">439</span>                 <span class="n">resp</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">440</span>                     <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">441</span>                     <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">595</span> 
+<span class="g g-Whitespace">    </span><span class="mi">596</span>             <span class="c1"># Make the request on the httplib connection object.</span>
+<span class="ne">--&gt; </span><span class="mi">597</span>             <span class="n">httplib_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">598</span>                                                   <span class="n">timeout</span><span class="o">=</span><span class="n">timeout_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">599</span>                                                   <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">341</span>         <span class="c1"># Trigger any extra validation we need to do.</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">343</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_validate_conn</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span>         <span class="k">except</span> <span class="p">(</span><span class="n">SocketTimeout</span><span class="p">,</span> <span class="n">BaseSSLError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">345</span>             <span class="c1"># Py2 raises this as a BaseSSLError, Py3 raises it as socket timeout.</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_validate_conn</span><span class="nt">(self, conn)</span>
+<span class="g g-Whitespace">    </span><span class="mi">837</span>         <span class="c1"># Force connect early to allow us to validate the connection.</span>
+<span class="g g-Whitespace">    </span><span class="mi">838</span>         <span class="k">if</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s1">&#39;sock&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>  <span class="c1"># AppEngine might not have  `.sock`</span>
+<span class="ne">--&gt; </span><span class="mi">839</span>             <span class="n">conn</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">840</span> 
+<span class="g g-Whitespace">    </span><span class="mi">841</span>         <span class="k">if</span> <span class="ow">not</span> <span class="n">conn</span><span class="o">.</span><span class="n">is_verified</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/connection.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">335</span>         <span class="n">context</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ssl_context</span>
+<span class="g g-Whitespace">    </span><span class="mi">336</span>         <span class="n">context</span><span class="o">.</span><span class="n">verify_mode</span> <span class="o">=</span> <span class="n">resolve_cert_reqs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cert_reqs</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">337</span>         <span class="bp">self</span><span class="o">.</span><span class="n">sock</span> <span class="o">=</span> <span class="n">ssl_wrap_socket</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">338</span>             <span class="n">sock</span><span class="o">=</span><span class="n">conn</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">339</span>             <span class="n">keyfile</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">key_file</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/util/ssl_.py</span> in <span class="ni">ssl_wrap_socket</span><span class="nt">(sock, keyfile, certfile, cert_reqs, ca_certs, server_hostname, ssl_version, ciphers, ssl_context, ca_cert_dir)</span>
+<span class="g g-Whitespace">    </span><span class="mi">343</span>             <span class="ow">or</span> <span class="n">IS_SECURETRANSPORT</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span>         <span class="k">if</span> <span class="n">HAS_SNI</span> <span class="ow">and</span> <span class="n">server_hostname</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">345</span>             <span class="k">return</span> <span class="n">context</span><span class="o">.</span><span class="n">wrap_socket</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span> <span class="n">server_hostname</span><span class="o">=</span><span class="n">server_hostname</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">346</span> 
+<span class="g g-Whitespace">    </span><span class="mi">347</span>         <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span>
+
+<span class="nn">/usr/lib/python3.8/ssl.py</span> in <span class="ni">wrap_socket</span><span class="nt">(self, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, session)</span>
+<span class="g g-Whitespace">    </span><span class="mi">498</span>         <span class="c1"># SSLSocket class handles server_hostname encoding before it calls</span>
+<span class="g g-Whitespace">    </span><span class="mi">499</span>         <span class="c1"># ctx._wrap_socket()</span>
+<span class="ne">--&gt; </span><span class="mi">500</span>         <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">sslsocket_class</span><span class="o">.</span><span class="n">_create</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">501</span>             <span class="n">sock</span><span class="o">=</span><span class="n">sock</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">502</span>             <span class="n">server_side</span><span class="o">=</span><span class="n">server_side</span><span class="p">,</span>
+
+<span class="nn">/usr/lib/python3.8/ssl.py</span> in <span class="ni">_create</span><span class="nt">(cls, sock, server_side, do_handshake_on_connect, suppress_ragged_eofs, server_hostname, context, session)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1038</span>                         <span class="c1"># non-blocking</span>
+<span class="g g-Whitespace">   </span><span class="mi">1039</span>                         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;do_handshake_on_connect should not be specified for non-blocking sockets&quot;</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1040</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">do_handshake</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1041</span>             <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+<span class="g g-Whitespace">   </span><span class="mi">1042</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nn">/usr/lib/python3.8/ssl.py</span> in <span class="ni">do_handshake</span><span class="nt">(self, block)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1307</span>             <span class="k">if</span> <span class="n">timeout</span> <span class="o">==</span> <span class="mf">0.0</span> <span class="ow">and</span> <span class="n">block</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1308</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1309</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">do_handshake</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1310</span>         <span class="k">finally</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1311</span>             <span class="bp">self</span><span class="o">.</span><span class="n">settimeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -744,203 +786,6 @@ found 0 deleted tweets in this search.
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output text_html">
-  <div id="df-178e7225-cd76-437e-af91-ad5a0120b2c0">
-    <div class="colab-df-container">
-      <div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Penulis</th>
-      <th>Judul</th>
-      <th>Abstrak</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>A.Ubaidillah S.Kom</td>
-      <td>Perancangan dan implementasi sistem database t...</td>
-      <td>Sistem  informasi  akademik  (siakad) merupaka...</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>M. Basith Ardianto,</td>
-      <td>Aplikasi kontrol dan monitoring jaringan kompu...</td>
-      <td>Berjalannya koneksi jaringan komputer dengan l...</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Akhmad Suyandi, S.Kom</td>
-      <td>Rancang bangun aplikasi proxy server untukenkr...</td>
-      <td>Web server adalah sebuah perangkat lunak serve...</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Heri Supriyanto</td>
-      <td>Sistem pendukung keputusan optimasi penjadwala...</td>
-      <td>Penjadwalan  kuliah  di  perguruan  tinggi  me...</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>Septian Rahman Hakim</td>
-      <td>Sistem augmented reality animasi benda bergera...</td>
-      <td>Seiring perkembangan teknologi yang ada diduni...</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Adi Chandra Laksono</td>
-      <td>Gerak pekerja pada game real time strategy men...</td>
-      <td>Gerak pekerja ada pada game yang memiliki genr...</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>NURRACHMAT</td>
-      <td>Rancang bangun game perawatan sapi karapan men...</td>
-      <td>Perkembangan game yang semakin pesat, memberik...</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Muhammad Choirur Rozi</td>
-      <td>Ekstraksi fitur berbasis two dimensional linea...</td>
-      <td>Sistem pengenalan wajah adalah suatu sistem un...</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>M Khoiril Anwar</td>
-      <td>Implementasi  algoritma prim  dan depth first ...</td>
-      <td>Teknologi mobile game beroperating system open...</td>
-    </tr>
-    <tr>
-      <th>9</th>
-      <td>MALIKUL HAMZAH</td>
-      <td>Perancangan sistem informasi badan kepegawaian...</td>
-      <td>Kantor badan kepegawaian kota bangkalan adalah...</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>Norman</td>
-      <td>Pemanfaatan togaf adm untuk perancangan sistem...</td>
-      <td>Penyusunan sistem informasi dinas perindustria...</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>Robiatul Adawiyah, S.Kom</td>
-      <td>Aplikasi metode fuzzy analytic network process...</td>
-      <td>Perusahaan pemerintah maupun swasta mempunyai ...</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>Desy Mariana S. Kom</td>
-      <td>Sistem pendukung keputusan rekomendasi menu di...</td>
-      <td>Pelayanan makanan bagi pasien rawat inap di ru...</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>Lia Fransiska</td>
-      <td>Rancang bangun aplikasi pemilihan teknik rekay...</td>
-      <td>Penyusunan sistem pendukung keputusan pemiliha...</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>Erwina Safitri</td>
-      <td>Deteksi corepoint sidik jari menggunakan metod...</td>
-      <td>Sidik jari adalah salah satu karakteristik fis...</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-178e7225-cd76-437e-af91-ad5a0120b2c0')"
-              title="Convert this dataframe to an interactive table."
-              style="display:none;">
-
-  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
-       width="24px">
-    <path d="M0 0h24v24H0V0z" fill="none"/>
-    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
-  </svg>
-      </button>
-
-  <style>
-    .colab-df-container {
-      display:flex;
-      flex-wrap:wrap;
-      gap: 12px;
-    }
-
-    .colab-df-convert {
-      background-color: #E8F0FE;
-      border: none;
-      border-radius: 50%;
-      cursor: pointer;
-      display: none;
-      fill: #1967D2;
-      height: 32px;
-      padding: 0 0 0 0;
-      width: 32px;
-    }
-
-    .colab-df-convert:hover {
-      background-color: #E2EBFA;
-      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
-      fill: #174EA6;
-    }
-
-    [theme=dark] .colab-df-convert {
-      background-color: #3B4455;
-      fill: #D2E3FC;
-    }
-
-    [theme=dark] .colab-df-convert:hover {
-      background-color: #434B5C;
-      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
-      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
-      fill: #FFFFFF;
-    }
-  </style>
-
-      <script>
-        const buttonEl =
-          document.querySelector('#df-178e7225-cd76-437e-af91-ad5a0120b2c0 button.colab-df-convert');
-        buttonEl.style.display =
-          google.colab.kernel.accessAllowed ? 'block' : 'none';
-
-        async function convertToInteractive(key) {
-          const element = document.querySelector('#df-178e7225-cd76-437e-af91-ad5a0120b2c0');
-          const dataTable =
-            await google.colab.kernel.invokeFunction('convertToInteractive',
-                                                     [key], {});
-          if (!dataTable) return;
-
-          const docLinkHtml = 'Like what you see? Visit the ' +
-            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
-            + ' to learn more about interactive tables.';
-          element.innerHTML = '';
-          dataTable['output_type'] = 'display_data';
-          await google.colab.output.renderOutput(dataTable, element);
-          const docLink = document.createElement('div');
-          docLink.innerHTML = docLinkHtml;
-          element.appendChild(docLink);
-        }
-      </script>
-    </div>
-  </div>
-</div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1025,7 +870,7 @@ found 0 deleted tweets in this search.
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-c739cb2f-f33e-468d-a1da-b578e1457755">
+  <div id="df-afac5577-1714-4a7c-ac0d-847fbf14288d">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1052,233 +897,233 @@ found 0 deleted tweets in this search.
   <tbody>
     <tr>
       <th>0</th>
-      <td>Sopir Fortuner yang Tertembak Senpi Majikan Te...</td>
-      <td>JAKARTA, KOMPAS.com - Seorang sopir berinisial...</td>
+      <td>All England 2023: Hasil Drawing, Jadwal, dan T...</td>
+      <td>KOMPAS.com - Indonesia mengirim 14 wakilnya un...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>15 Jurusan Baru UI di SNBP 2023 dan UTBK SNBT ...</td>
-      <td>KOMPAS.com - Universitas Indonesia ( UI ) memb...</td>
+      <td>Jokowi Klaim Tidak Ada Kendala Pembebasan Laha...</td>
+      <td>BALIKPAPAN , KOMPAS.com - Presiden Joko Widodo...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>4 Orang yang Tewas Akibat Ledakan di Blitar Te...</td>
-      <td>KOMPAS.com - Polisi bersama tim SAR berhasil m...</td>
+      <td>Camat Penjaringan Larang Ketua RT di Pluit Bon...</td>
+      <td>JAKARTA, KOMPAS.com - Kepala Seksi (Kasi) Peme...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>Lirik Lagu You and Me, Singel Baru dari Vedo</td>
-      <td>JAKARTA, KOMPAS.com – Penyanyi dan penulis lag...</td>
+      <td>Jenis Bunga yang Bisa Mengusir Hama di Sawah</td>
+      <td>JAKARTA, KOMPAS.com - Kehadiran hama di sawah ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>16 Makanan yang Sebaiknya Dihindari Penderita ...</td>
-      <td>KOMPAS.com - Ginjal merupakan salah satu organ...</td>
+      <td>Oknum Polisi di Sulsel "Bekingi" Pengedar Sabu...</td>
+      <td>MAKASSAR, KOMPAS.com - Oknum polisi berinisial...</td>
     </tr>
     <tr>
       <th>5</th>
-      <td>Komedian Lee Kyeong Shil Dilaporkan atas Dugaa...</td>
-      <td>KOMPAS.com - Komedian senior di Korea Selatan,...</td>
+      <td>Mayat Perempuan Ditemukan di Gudang Terbengkal...</td>
+      <td>LAMPUNG , KOMPAS.com - Jasad perempuan ditemuk...</td>
     </tr>
     <tr>
       <th>6</th>
-      <td>Detik-detik Penumpang Helikopter Dievakuasi Le...</td>
-      <td>KOMPAS.com - Proses evakuasi para penumpang he...</td>
+      <td>Kemacetan Jakarta “Naik Peringkat”, Pejabat DK...</td>
+      <td>JAKARTA, KOMPAS.com - Lembaga pemeringkat lalu...</td>
     </tr>
     <tr>
       <th>7</th>
-      <td>Festival Musik Open Air Amphitheatre Pertama d...</td>
-      <td>KOMPAS.com – Dua penyanyi muda kenamaan Indone...</td>
+      <td>Gempa M 5,9 Guncang Maluku Barat Daya, Tidak B...</td>
+      <td>AMBON, KOMPAS.com- Gempa tektonik berkekuatan ...</td>
     </tr>
     <tr>
       <th>8</th>
-      <td>Komentar Pengunjung IIMS 2023 Soal Wuling Alvez</td>
-      <td>JAKARTA, KOMPAS.com - Wuling Alvez resmi melun...</td>
+      <td>Caleg Sistem Proporsional Tertutup Rentan Dit...</td>
+      <td>JAKARTA, KOMPAS.com - Pakar hukum tata negara ...</td>
     </tr>
     <tr>
       <th>9</th>
-      <td>Sinopsis Iron Mask, Melancong ke China Demi Me...</td>
-      <td>JAKARTA, KOMPAS.com - Iron Mask merupakan film...</td>
+      <td>Beras Masih Mahal, Gus Muhaimin Minta Pemerint...</td>
+      <td>KOMPAS.com - Wakil Ketua Dewan Perwakilan Raky...</td>
     </tr>
     <tr>
       <th>10</th>
-      <td>5 Kesalahan yang Dilakukan Orang di Dapur</td>
-      <td>JAKARTA, KOMPAS.com - Dapur adalah jantung seb...</td>
+      <td>Wakil Ketua BKSAP DPR Dorong Peningkatan Kerja...</td>
+      <td>KOMPAS.com - Wakil Ketua Badan Kerja Sama Anta...</td>
     </tr>
     <tr>
       <th>11</th>
-      <td>Pembentukan Kodam di Tiap Provinsi Dinilai Bak...</td>
-      <td>JAKARTA, KOMPAS.com - Peneliti Lembaga Studi P...</td>
+      <td>Musra Bakal Serahkan 3 Nama Capres-Cawapres ke...</td>
+      <td>JAKARTA, KOMPAS.com - Ketua Panitia Musyawarah...</td>
     </tr>
     <tr>
       <th>12</th>
-      <td>Soal 2 Kasus Diduga Gagal Ginjal, Menkes: Duga...</td>
-      <td>JAKARTA, KOMPAS.com - Menteri Kesehatan ( Menk...</td>
+      <td>Pertamina Mau Luncurkan Alat Konversi Motor Be...</td>
+      <td>JAKARTA, KOMPAS.com – Pada pameran IIMS 2023, ...</td>
     </tr>
     <tr>
       <th>13</th>
-      <td>4 Tren Pernikahan yang Akan Mulai Ditinggalkan...</td>
-      <td>KOMPAS.com - Baru-baru ini, menikah di Kantor ...</td>
+      <td>Kondisi Ibu yang Melahirkan di Pinggir Jalan, ...</td>
+      <td>KOMPAS.com - HPS (22), seorang ibu asal Desa M...</td>
     </tr>
     <tr>
       <th>14</th>
-      <td>Sopir Fortuner yang Tertembak Majikan di Jakse...</td>
-      <td>JAKARTA, KOMPAS.com - Sopir Toyota Fortuner be...</td>
+      <td>Pemerintah Sudah Belanja Rp 141,4 Triliun di J...</td>
+      <td>JAKARTA, KOMPAS.com - Menteri Keuangan Sri Mul...</td>
     </tr>
     <tr>
       <th>15</th>
-      <td>Ketua RT Larang Jemaat GKKD Lampung Beribadah,...</td>
-      <td>KOMPAS.com - Viral di grup WhatsApp sebuah vid...</td>
+      <td>Pemerintah Sudah Belanja Rp 141,4 Triliun di J...</td>
+      <td>JAKARTA, KOMPAS.com - Menteri Keuangan Sri Mul...</td>
     </tr>
     <tr>
       <th>16</th>
-      <td>Lirik dan Terjemahan Limitless (Versi Jepang) ...</td>
-      <td>JAKARTA, KOMPAS.com- "Limitless" merupakan sal...</td>
+      <td>Bed Down di Hotel Bisa Kena Denda, Apa Itu?</td>
+      <td>KOMPAS.com - Para tamu yang menginap di hotel ...</td>
     </tr>
     <tr>
       <th>17</th>
-      <td>Ressa Herlambang Dilaporkan ke Polisi Atas Dug...</td>
-      <td>JAKARTA, KOMPAS.com - Penyanyi dan pencipta la...</td>
+      <td>Dua Pencuri 23 Burung Murai di Tambora Dibebas...</td>
+      <td>JAKARTA, KOMPAS.com - Polisi menghentikan peny...</td>
     </tr>
     <tr>
       <th>18</th>
-      <td>Anggap Tarif Sewa Kampung Susun Bayam Rp 750.0...</td>
-      <td>JAKARTA, KOMPAS.com - Warga Kampung Bayam, Jak...</td>
+      <td>2 Pencuri Motor di Bogor Ditangkap Warga Usai ...</td>
+      <td>KABUPATEN BOGOR , KOMPAS.com - Dua pencuri sep...</td>
     </tr>
     <tr>
       <th>19</th>
-      <td>Gambar Penenun Kain Ulos dan Danau Toba Hiasi ...</td>
-      <td>KOMPAS.com - Jelang gelaran F1 Powerboat pada ...</td>
+      <td>Polri Sebut Sidang Etik Bripka RR Menunggu Has...</td>
+      <td>JAKARTA, KOMPAS.com - Polri menyatakan belum b...</td>
     </tr>
     <tr>
       <th>20</th>
-      <td>Klaim Hubungan dengan Gerindra Baik, Mardiono ...</td>
-      <td>JAKARTA, KOMPAS.com - Pelaksana Tugas (Plt) Ke...</td>
+      <td>Elektabilitas Turun Imbas Nasdem Dapat Efek Ek...</td>
+      <td>JAKARTA, KOMPAS.com - Juru Bicara (Jubir) Part...</td>
     </tr>
     <tr>
       <th>21</th>
-      <td>Banjir di Kampung Rambutan Sisakan Sampah, Mul...</td>
-      <td>JAKARTA, KOMPAS.com - Petugas PPSU Kelurahan K...</td>
+      <td>Perluas Layanan "Pay Later" di RI, Atome Tunju...</td>
+      <td>JAKARTA , KOMPAS.com - Atome , layanan belanja...</td>
     </tr>
     <tr>
       <th>22</th>
-      <td>3 Cara Olah Jahe Merah untuk Minuman, Bukan Cu...</td>
-      <td>KOMPAS.com - Jahe merah bisa dimanfaatkan seba...</td>
+      <td>Jusuf Kalla Bangun Smelter di Luwu, Siap Tampu...</td>
+      <td>LUWU , KOMPAS.com - Pembangunan smelter nikel ...</td>
     </tr>
     <tr>
       <th>23</th>
-      <td>GOTO dan MDKA Masuk Indeks FTSE, Bagaimana Pro...</td>
-      <td>JAKARTA, KOMPAS.com - Saham PT GoTo Gojek Toko...</td>
+      <td>Deretan Mobil Zaman Perang Mejeng di IIMS 2023</td>
+      <td>JAKARTA, KOMPAS.com - Indonesia International ...</td>
     </tr>
     <tr>
       <th>24</th>
-      <td>Soloraya Tergenang Banjir, Ganjar Ungkap Hulu ...</td>
-      <td>SOLO, KOMPAS.com - Pascabanjir mengepung wilay...</td>
+      <td>Berkat Pesan Semangat dari Ganjar, Ibu Hamil d...</td>
+      <td>KOMPAS.com - Gubernur Jawa Tengah (Jateng) Gan...</td>
     </tr>
     <tr>
       <th>25</th>
-      <td>Apakah Tikus Memang Benar-benar Suka Keju?</td>
-      <td>KOMPAS.com - Film seperti Tom and Jerry mengga...</td>
+      <td>Spesifikasi dan Harga Tecno Spark Go 2023 di I...</td>
+      <td>KOMPAS.com - Tecno Mobile meluncurkan smartpho...</td>
     </tr>
     <tr>
       <th>26</th>
-      <td>Candi Mirigambar, dari Cerita Panji hingga Ang...</td>
-      <td>KOMPAS.com - Candi Mirigambar merupakan salah ...</td>
+      <td>BMKG Ajak Masyarakat Panen Air Hujan, Apa Tuju...</td>
+      <td>KOMPAS.com - Badan Meteorologi, Klimatologi, d...</td>
     </tr>
     <tr>
       <th>27</th>
-      <td>300.000 Botol Starbucks Ditarik, Diduga Mengan...</td>
-      <td>KOMPAS.com - Sebanyak lebih dari 300.000 botol...</td>
+      <td>Gadis Muda di Pandeglang Diperkosa Dukun Keper...</td>
+      <td>KOMPAS.com - SI (20), wanita muda di Kabupaten...</td>
     </tr>
     <tr>
       <th>28</th>
-      <td>Lirik dan Chord Lagu The Way I Feel - Fleetwoo...</td>
-      <td>JAKARTA, KOMPAS.com - “ The Way I Feel ” merup...</td>
+      <td>4 Tips ke Museum Zoologi Bogor, Pakai Jasa Pem...</td>
+      <td>KOMPAS.com - Salah satu tempat wisata keluarga...</td>
     </tr>
     <tr>
       <th>29</th>
-      <td>PS5 Pro Meluncur September 2023? Ini Bocoran S...</td>
-      <td>KOMPAS.com - Desas-desus kehadiran konsol Play...</td>
+      <td>Normalisasi Ciliwung, Heru Budi Akui Ada Bidan...</td>
+      <td>JAKARTA, KOMPAS.com - Penjabat (Pj) Gubernur D...</td>
     </tr>
     <tr>
       <th>30</th>
-      <td>Tahun 2023, 422 Kilometer Jalan Perbatasan Bak...</td>
-      <td>JAKARTA, KOMPAS.com - Kementerian Pekerjaan Um...</td>
+      <td>Pembangunan Gedung Stasiun Rangkasbitung Ultim...</td>
+      <td>LEBAK, KOMPAS.com - Kementerian Perhubungan te...</td>
     </tr>
     <tr>
       <th>31</th>
-      <td>Tak Hanya Manfaat, Makan Ayam Setiap Hari Bisa...</td>
-      <td>KOMPAS.com - Ayam adalah salah satu protein ya...</td>
+      <td>Viral, Foto Pengemudi Mobil di Ponorogo Lakuka...</td>
+      <td>PONOROGO , KOMPAS.com - Sebuah foto yang mempe...</td>
     </tr>
     <tr>
       <th>32</th>
-      <td>Kapolri Aktifkan Lagi Satgas Antimafia Bola, E...</td>
-      <td>JAKARTA, KOMPAS.com - Wakapolda Metro Jaya Bri...</td>
+      <td>ETLE Mobile Beroperasi di Jakarta Timur, Sasar...</td>
+      <td>JAKARTA, KOMPAS.com - ETLE Mobile sudah resmi ...</td>
     </tr>
     <tr>
       <th>33</th>
-      <td>Tersangka Narkoba Mengaku Dibekingi Oknum Polr...</td>
-      <td>MAKASSAR, KOMPAS.com - Polda Sulsel menerjunka...</td>
+      <td>Ungkap Drama di Balik Konser Dewa 19 di JIS, A...</td>
+      <td>JAKARTA, KOMPAS.com - Penyanyi Ari Lasso ungka...</td>
     </tr>
     <tr>
       <th>34</th>
-      <td>Sinopsis Film Vanquisher, Pelarian Agen CIA da...</td>
-      <td>JAKARTA, KOMPAS.com - Vanquisher merupakan fil...</td>
+      <td>BPKA Bantah Banjir di Sulsel Diperparah karena...</td>
+      <td>MAROS , KOMPAS.com - Balai Pengelola Kereta Ap...</td>
     </tr>
     <tr>
       <th>35</th>
-      <td>Dua Pilihan Konversi Motor Listrik, Pilih Mid ...</td>
-      <td>JAKARTA, KOMPAS.com – Menyikapi tingginya harg...</td>
+      <td>Pemerintah Tanggung Biaya Rekontruksi Rumah Ru...</td>
+      <td>SURABAYA, KOMPAS.com - Gubernur Jawa Timur Kho...</td>
     </tr>
     <tr>
       <th>36</th>
-      <td>Finalisasi PDSS 2023 Diperpanjang, Jadwal SNBP...</td>
-      <td>KOMPAS.com - Sekolah yang belum menyelesaikan ...</td>
+      <td>Jokowi: Indonesia Punya Semua Komponen Kendara...</td>
+      <td>JAKARTA, KOMPAS.com - Presiden RI Joko Widodo ...</td>
     </tr>
     <tr>
       <th>37</th>
-      <td>Garap Pasar Anak Muda, Wuling Kenalkan SUV Bar...</td>
-      <td>KOMPAS.com – Setelah membuat gebrakan di segme...</td>
+      <td>Kunjungan Wapres Ma'ruf Amin di Mamuju, 12 Pen...</td>
+      <td>MAMUJU , KOMPAS.com - Wakil Presiden Ma'ruf Am...</td>
     </tr>
     <tr>
       <th>38</th>
-      <td>Lirik dan Chord Lagu Emerald Eyes - Fleetwood Mac</td>
-      <td>JAKARTA, KOMPAS.com - Grup band rock kenamaan,...</td>
+      <td>Viral, Video Polisi di Manado Doakan Pemotor y...</td>
+      <td>MANADO , KOMPAS.com - Video seorang pengendara...</td>
     </tr>
     <tr>
       <th>39</th>
-      <td>Selama di Norwegia, Rektor UII Tak Melihat Gel...</td>
-      <td>YOGYAKARTA ,KOMPAS.com - Dosen Universitas Isl...</td>
+      <td>Polri Jamin Keamanan Richard Eliezer Usai Dipe...</td>
+      <td>JAKARTA, KOMPAS.com - Markas Besar Polri menja...</td>
     </tr>
     <tr>
       <th>40</th>
-      <td>IHSG Ditutup Terkoreksi Tipis di Awal Pekan</td>
-      <td>JAKARTA, KOMPAS.com - Indeks Harga Saham Gabun...</td>
+      <td>TPS yang Ganggu Siswa Belajar di Tasikmalaya A...</td>
+      <td>TASIKMALAYA , KOMPAS.com - Dinas Lingkungan Hi...</td>
     </tr>
     <tr>
       <th>41</th>
-      <td>Perampok Bersenjata Api Beraksi di Pekanbaru, ...</td>
-      <td>PEKANBARU, KOMPAS.com - Perampok beraksi di ag...</td>
+      <td>Xi Jinping Disebut Akan Temui Putin di Rusia</td>
+      <td>BEIJING, KOMPAS.com - Presiden China Xi Jinpin...</td>
     </tr>
     <tr>
       <th>42</th>
-      <td>Sebelum Lucky Hakim Mundur, DPRD Indramayu Seb...</td>
-      <td>INDRAMAYU, KOMPAS.com - Ketua DPRD Kabupaten I...</td>
+      <td>Kucing British Shorthair Vs American Shorthair...</td>
+      <td>JAKARTA, KOMPAS.com - Ada banyak ras kucing ya...</td>
     </tr>
     <tr>
       <th>43</th>
-      <td>Lirik dan Chord Lagu That’s Alright - Fleetwoo...</td>
-      <td>JAKARTA, KOMPAS.com - Fleetwood Mac merupakan ...</td>
+      <td>Kasus Korupsi Helikopter AW-101, Irfan Kurnia ...</td>
+      <td>JAKARTA, KOMPAS.com - Mejalis Hakim Pengadilan...</td>
     </tr>
     <tr>
       <th>44</th>
-      <td>Pengamat Sebut Tak Ada Alasan Mendesak untuk B...</td>
-      <td>JAKARTA, KOMPAS.com - Peneliti Lembaga Studi P...</td>
+      <td>Eks Kapolsek Kalibaru Tertarik Jual Sabu Milik...</td>
+      <td>JAKARTA, KOMPAS.com - Mantan Kapolsek Kalibaru...</td>
     </tr>
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-c739cb2f-f33e-468d-a1da-b578e1457755')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-afac5577-1714-4a7c-ac0d-847fbf14288d')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1329,12 +1174,12 @@ found 0 deleted tweets in this search.
 
       <script>
         const buttonEl =
-          document.querySelector('#df-c739cb2f-f33e-468d-a1da-b578e1457755 button.colab-df-convert');
+          document.querySelector('#df-afac5577-1714-4a7c-ac0d-847fbf14288d button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-c739cb2f-f33e-468d-a1da-b578e1457755');
+          const element = document.querySelector('#df-afac5577-1714-4a7c-ac0d-847fbf14288d');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1400,11 +1245,13 @@ found 0 deleted tweets in this search.
         <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">soup</span><span class="p">([</span><span class="s1">&#39;style&#39;</span><span class="p">,</span> <span class="s1">&#39;script&#39;</span><span class="p">]):</span>
           <span class="n">d</span><span class="o">.</span><span class="n">decompose</span><span class="p">()</span>
         <span class="c1"># ambil data</span>
-        <span class="n">judul</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;detail__title&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">stripped_strings</span><span class="p">)</span>
-        <span class="n">isi</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;detail__body-text&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">stripped_strings</span><span class="p">)</span>
+        <span class="n">judul</span> <span class="o">=</span> <span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h1&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;detail__title&#39;</span><span class="p">))</span>
+        <span class="n">isi</span> <span class="o">=</span> <span class="p">(</span><span class="n">soup</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span> <span class="n">class_</span><span class="o">=</span><span class="s1">&#39;detail__body-text&#39;</span><span class="p">))</span>
+        <span class="k">if</span> <span class="n">judul</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">isi</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+          <span class="k">continue</span>
         <span class="n">berita_list</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
-            <span class="s1">&#39;Judul&#39;</span><span class="p">:</span> <span class="n">judul</span><span class="p">,</span>
-            <span class="s1">&#39;Isi Berita&#39;</span><span class="p">:</span> <span class="n">isi</span>
+            <span class="s1">&#39;Judul&#39;</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">judul</span><span class="o">.</span><span class="n">stripped_strings</span><span class="p">),</span>
+            <span class="s1">&#39;Isi Berita&#39;</span><span class="p">:</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">isi</span><span class="o">.</span><span class="n">stripped_strings</span><span class="p">)</span>
         <span class="p">})</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">beritas</span> <span class="o">=</span> <span class="n">berita_list</span>
 
@@ -1443,7 +1290,7 @@ found 0 deleted tweets in this search.
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-0dfa9184-1f64-4ca0-b004-0faf2158c457">
+  <div id="df-c61368ba-e231-46ac-9d38-a431c73ed578">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1470,28 +1317,28 @@ found 0 deleted tweets in this search.
   <tbody>
     <tr>
       <th>0</th>
-      <td>Polisi: Pemilik Fortuner Tak Sengaja Tembak So...</td>
-      <td>Jakarta - Pria inisial AM yang merupakan sopir...</td>
+      <td>Heru Budi soal Jokowi Mau Normalisasi Ciliwung...</td>
+      <td>Jakarta - Presiden Joko Widodo (Jokowi) ingin ...</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>Cari Solusi Tembok Rawan Jebol, Giliran Bu Ami...</td>
-      <td>Jakarta - Tembok Bu Ami di Tebet Jakarta Selat...</td>
+      <td>Sidang Etik Ricky Rizal Digelar Usai Keputusan...</td>
+      <td>Jakarta - Majelis sidang Komisi Kode Etik Polr...</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>Airlangga Tunggu Arahan Jokowi soal Pengganti ...</td>
-      <td>Jakarta - Zainudin Amali disebut siap melepas ...</td>
+      <td>3 Halte TransJ Ditutup Imbas Proyek MRT Fase 2...</td>
+      <td>Jakarta - PT Transportasi Jakarta ( TransJakar...</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>BSSN Ungkap Pencurian Data Jadi Serangan Siber...</td>
-      <td>Jakarta - Badan Siber dan Sandi Negara ( BSSN ...</td>
+      <td>Daftar Putusan Etik di Pusaran Kasus Yosua: Sa...</td>
+      <td>Jakarta - Komisi Kode Etik Polri (KKEP) terus ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Cegah Keluarga Saling Gugat di Pengadilan, Lur...</td>
-      <td>Jakarta - Sengketa waris merupakan salah satu ...</td>
+      <td>Kajati Jabar Asep Mulyana Dilantik Jadi Dirjen...</td>
+      <td>Jakarta - Kepala Kejaksaan Tinggi (Kajati) Jaw...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1499,35 +1346,35 @@ found 0 deleted tweets in this search.
       <td>...</td>
     </tr>
     <tr>
+      <th>94</th>
+      <td>Ketua DPR Rusia Tuding AS Sudah Hancurkan Stab...</td>
+      <td>Moskow - Ketua Duma atau majelis rendah parlem...</td>
+    </tr>
+    <tr>
       <th>95</th>
-      <td>30 Twibbon Hari Peduli Sampah Nasional 2023: L...</td>
-      <td>Jakarta - Twibbon Hari Peduli Sampah Nasional ...</td>
+      <td>Mundur sebagai Menpora, Zainudin Amali Ngaku S...</td>
+      <td>Jakarta - Zainudin Amali mengaku sudah memberi...</td>
     </tr>
     <tr>
       <th>96</th>
-      <td>Bareskrim Minta Polda Sulsel Usut Pengedar Nar...</td>
-      <td>Jakarta - Salah satu tersangka pengedar narkob...</td>
+      <td>Anak Pejabat Pajak Tersangka Penganiayaan Tera...</td>
+      <td>Jakarta - Polisi menetapkan Mario Dandy Satrio...</td>
     </tr>
     <tr>
       <th>97</th>
-      <td>Ini Alasan Polisi Kabulkan Penanguhan Penahana...</td>
-      <td>Jakarta - Polisi menangguhkan penahanan pengem...</td>
+      <td>Kejari Denpasar Musnahkan Barang Bukti Narkoti...</td>
+      <td>Denpasar - Kejaksaan Negeri Denpasar melakukan...</td>
     </tr>
     <tr>
       <th>98</th>
-      <td>Jusuf Kalla Pantau Langsung Proses Evakuasi He...</td>
-      <td>Wakil Presiden Republik Indonesia (Wapres RI) ...</td>
-    </tr>
-    <tr>
-      <th>99</th>
-      <td>Zainudin Amali Lapor ke Jokowi Pilih Fokus Uru...</td>
-      <td>Jakarta - Menteri Pemuda dan Olahraga (Menpora...</td>
+      <td>3 Kombes Ini Jadi Penentu Nasib Bharada Elieze...</td>
+      <td>Jakarta - Bharada Richard Eliezer menjalani si...</td>
     </tr>
   </tbody>
 </table>
-<p>100 rows × 2 columns</p>
+<p>99 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-0dfa9184-1f64-4ca0-b004-0faf2158c457')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-c61368ba-e231-46ac-9d38-a431c73ed578')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
 
@@ -1578,12 +1425,12 @@ found 0 deleted tweets in this search.
 
       <script>
         const buttonEl =
-          document.querySelector('#df-0dfa9184-1f64-4ca0-b004-0faf2158c457 button.colab-df-convert');
+          document.querySelector('#df-c61368ba-e231-46ac-9d38-a431c73ed578 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-0dfa9184-1f64-4ca0-b004-0faf2158c457');
+          const element = document.querySelector('#df-c61368ba-e231-46ac-9d38-a431c73ed578');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
