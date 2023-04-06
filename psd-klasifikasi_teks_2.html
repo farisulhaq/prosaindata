@@ -160,6 +160,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="psd-crawling.html">Crawling Data Twitter dan Web</a></li>
 <li class="toctree-l1"><a class="reference internal" href="psd-get_data.html">Get Data Multi database</a></li>
 <li class="toctree-l1"><a class="reference internal" href="psd-times_series.html">TimesSeries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psd-prepocessing.html">Prepocessing Text PTA</a></li>
 <li class="toctree-l1"><a class="reference internal" href="psd-klasifikasi_teks_1.html">Klasifikassi Teks Tanpa Word2Vec</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Klasifikassi Teks Word2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="psd-uts.html">UTS</a></li>
@@ -440,7 +441,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to /root/nltk_data...
-[nltk_data]   Unzipping corpora/stopwords.zip.
+[nltk_data]   Package stopwords is already up-to-date!
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -470,7 +471,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-b0581a52-32f5-495f-96b6-a656198feffe">
+  <div id="df-5876b4c5-84ac-4369-a36f-151d5aee6f28">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -554,7 +555,7 @@ document.write(`
 </table>
 <p>596 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-b0581a52-32f5-495f-96b6-a656198feffe')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-5876b4c5-84ac-4369-a36f-151d5aee6f28')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -605,12 +606,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-b0581a52-32f5-495f-96b6-a656198feffe button.colab-df-convert');
+          document.querySelector('#df-5876b4c5-84ac-4369-a36f-151d5aee6f28 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-b0581a52-32f5-495f-96b6-a656198feffe');
+          const element = document.querySelector('#df-5876b4c5-84ac-4369-a36f-151d5aee6f28');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -639,9 +640,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data]   Unzipping tokenizers/punkt.zip.
+[nltk_data]   Package punkt is already up-to-date!
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
@@ -656,7 +655,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "d30c80397eee436292a68aae09ffcbf7"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "247bccb736f840b78ae654a4de22f9bc"}</script></div>
 </div>
 <div class="section" id="train-word2vec-model">
 <h2>Train Word2Vec Model<a class="headerlink" href="#train-word2vec-model" title="Permalink to this heading">#</a></h2>
