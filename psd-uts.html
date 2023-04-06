@@ -1,0 +1,1807 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>UTS &#8212; Proyeksi Saint Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
+    <link rel="stylesheet" href="_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+    <script src="_static/jquery.js"></script>
+    <script src="_static/underscore.js"></script>
+    <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="_static/doctools.js"></script>
+    <script src="_static/clipboard.min.js"></script>
+    <script src="_static/copybutton.js"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'psd-uts';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Klasifikassi Teks Word2Vec" href="psd-klasifikasi_teks_2.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="_static/logo1.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo1.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Welcome to Proyeksi Saint Data
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Tugas</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="psd-crawling.html">Crawling Data Twitter dan Web</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psd-get_data.html">Get Data Multi database</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psd-times_series.html">TimesSeries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psd-klasifikasi_teks_1.html">Klasifikassi Teks Tanpa Word2Vec</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psd-klasifikasi_teks_2.html">Klasifikassi Teks Word2Vec</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">UTS</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/farisulhaq/prosaindata/blob/gh-pages/_sources/psd-uts.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/farisulhaq/prosaindata" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/farisulhaq/prosaindata/issues/new?title=Issue%20on%20page%20%2Fpsd-uts.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/psd-uts.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>UTS</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intsal-library-yang-dibutuhkan">Intsal library yang dibutuhkan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dataset">Load Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-count-label-dan-ubah-tabel-yang-typo">Cek count label dan ubah tabel yang typo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-dataset-yang-nan">Remove dataset yang NAN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-processing">Pre-Processing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-text">Clean Text</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenize">Tokenize</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stopword">Stopword</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slank-word">Slank Word</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">Stemming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word2vec">Word2Vec</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#train-word2vec">Train Word2Vec</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#save-word2vec">Save Word2Vec</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding">Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#split-dataset">Split dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tanpa-word-to-vector">Tanpa Word to vector</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#word-to-vector">Word to vector</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">Naive bayes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tanpa-word2vec-dan-tanpa-pca">Tanpa Word2Vec dan Tanpa PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi">Evaluasi</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#word2vec-dan-tanpa-pca">Word2Vec dan Tanpa PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Evaluasi</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#word2vec-dan-pca">Word2Vec dan PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Evaluasi</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Tanpa Word2Vec dan Tanpa PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Evaluasi</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Word2Vec dan Tanpa PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Evaluasi</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Word2Vec dan PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Evaluasi</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="uts">
+<h1>UTS<a class="headerlink" href="#uts" title="Permalink to this heading">#</a></h1>
+<p>200411100171 Ahmad Farisul Haq</p>
+<div class="section" id="intsal-library-yang-dibutuhkan">
+<h2>Intsal library yang dibutuhkan<a class="headerlink" href="#intsal-library-yang-dibutuhkan" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="o">=</span> <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>nltk
+<span class="n">_</span><span class="o">=</span> <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>indoNLP
+<span class="n">_</span><span class="o">=</span> <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>jcopml
+<span class="n">_</span><span class="o">=</span> <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>gensim
+<span class="n">_</span><span class="o">=</span> <span class="o">!</span>pip<span class="w"> </span>instal<span class="w"> </span>tqdm
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">warnings</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">&quot;ignore&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span> <span class="c1">#pandas</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span> <span class="c1">#numpy</span>
+<span class="kn">import</span> <span class="nn">re</span> <span class="c1">#regex</span>
+<span class="kn">import</span> <span class="nn">string</span> <span class="c1">#string population</span>
+<span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span> <span class="c1">#tokenize</span>
+<span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span> <span class="c1">#stopword</span>
+<span class="kn">from</span> <span class="nn">indoNLP.preprocessing</span> <span class="kn">import</span> <span class="n">replace_slang</span> <span class="c1">#slank word</span>
+<span class="kn">from</span> <span class="nn">nltk.stem.porter</span> <span class="kn">import</span> <span class="n">PorterStemmer</span> <span class="c1">#stemming</span>
+<span class="kn">from</span> <span class="nn">tqdm.auto</span> <span class="kn">import</span> <span class="n">tqdm</span> <span class="c1">#status bar</span>
+<span class="kn">import</span> <span class="nn">nltk</span>
+<span class="kn">from</span> <span class="nn">gensim.models</span> <span class="kn">import</span> <span class="n">Word2Vec</span> <span class="c1">#model word2vec</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span> <span class="c1">#PCA</span>
+<span class="kn">import</span> <span class="nn">os</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="load-dataset">
+<h2>Load Dataset<a class="headerlink" href="#load-dataset" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/farisulhaq/dataset/main/ptaLabel.csv&#39;</span><span class="p">)</span>
+<span class="n">data</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span>
+    <span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Abstrak&quot;</span><span class="p">:</span> <span class="s2">&quot;abstrak&quot;</span><span class="p">,</span> <span class="s2">&quot;Label&quot;</span><span class="p">:</span> <span class="s2">&quot;label&quot;</span><span class="p">},</span>
+    <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-8712c42e-e9ea-467d-afc0-0daae66f38d9">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>NPM</th>
+      <th>Judul</th>
+      <th>abstrak</th>
+      <th>Prodi</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>40411100468</td>
+      <td>PERANCANGAN DAN IMPLEMENTASI SISTEM DATABASE T...</td>
+      <td>Sistem  informasi  akademik  (SIAKAD) merupaka...</td>
+      <td>Teknik Informatika</td>
+      <td>RPL</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>40411100476</td>
+      <td>APLIKASI KONTROL DAN MONITORING JARINGAN KOMPU...</td>
+      <td>Berjalannya koneksi jaringan komputer dengan l...</td>
+      <td>Teknik Informatika</td>
+      <td>RPL</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>40411100480</td>
+      <td>RANCANG BANGUN APLIKASI PROXY SERVER UNTUKENKR...</td>
+      <td>Web server adalah sebuah perangkat lunak serve...</td>
+      <td>Teknik Informatika</td>
+      <td>RPL</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>70411100070</td>
+      <td>SISTEM PENDUKUNG KEPUTUSAN OPTIMASI PENJADWALA...</td>
+      <td>Penjadwalan  kuliah  di  Perguruan  Tinggi  me...</td>
+      <td>Teknik Informatika</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>80411100115</td>
+      <td>SISTEM AUGMENTED REALITY ANIMASI BENDA BERGERA...</td>
+      <td>Seiring perkembangan teknologi yang ada diduni...</td>
+      <td>Teknik Informatika</td>
+      <td>Komputasi</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>850</th>
+      <td>160411100032</td>
+      <td>PENERAPAN ALGORITMA LONG-SHORT TERM MEMORY UNT...</td>
+      <td>Investasi saham selama ini memiliki resiko ker...</td>
+      <td>Teknik Informatika</td>
+      <td>komputasi</td>
+    </tr>
+    <tr>
+      <th>851</th>
+      <td>160411100182</td>
+      <td>SISTEM PENCARIAN TEKS AL-QURAN TERJEMAHAN BERB...</td>
+      <td>Information Retrieval (IR) merupakan pengambil...</td>
+      <td>Teknik Informatika</td>
+      <td>PBA</td>
+    </tr>
+    <tr>
+      <th>852</th>
+      <td>160411100077</td>
+      <td>KLASIFIKASI KOMPLEKSITAS VISUAL CITRA SAMPAH M...</td>
+      <td>Klasifikasi citra merupakan proses pengelompok...</td>
+      <td>Teknik Informatika</td>
+      <td>komputasi</td>
+    </tr>
+    <tr>
+      <th>853</th>
+      <td>160411100084</td>
+      <td>IDENTIFIKASI BINER ATRIBUT PEJALAN KAKI MENGGU...</td>
+      <td>Identifikasi atribut pejalan kaki merupakan sa...</td>
+      <td>Teknik Informatika</td>
+      <td>komputasi</td>
+    </tr>
+    <tr>
+      <th>854</th>
+      <td>160411100044</td>
+      <td>DETEKSI OBJEK MANUSIA BERBASIS ONE STAGE DETEC...</td>
+      <td>Topik deteksi objek telah menarik perhatian ya...</td>
+      <td>Teknik Informatika</td>
+      <td>komputasi</td>
+    </tr>
+  </tbody>
+</table>
+<p>855 rows × 5 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-8712c42e-e9ea-467d-afc0-0daae66f38d9')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-8712c42e-e9ea-467d-afc0-0daae66f38d9 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-8712c42e-e9ea-467d-afc0-0daae66f38d9');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+</div>
+<div class="section" id="cek-count-label-dan-ubah-tabel-yang-typo">
+<h2>Cek count label dan ubah tabel yang typo<a class="headerlink" href="#cek-count-label-dan-ubah-tabel-yang-typo" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>komputasi      344
+RPL            168
+Komputasi       52
+PBA             26
+KOMPUTASI        2
+KOmputasi        1
+komputasi        1
+komputai         1
+klasifikasi      1
+Name: label, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">change_class</span><span class="p">(</span><span class="n">before</span><span class="p">,</span> <span class="n">after</span><span class="p">):</span>
+  <span class="n">data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">before</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">after</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">change_class</span><span class="p">(</span><span class="s1">&#39;RPL&#39;</span><span class="p">,</span> <span class="s1">&#39;rpl&#39;</span><span class="p">)</span>
+<span class="n">change_class</span><span class="p">(</span><span class="s1">&#39;Komputasi&#39;</span><span class="p">,</span> <span class="s1">&#39;komputasi&#39;</span><span class="p">)</span>
+<span class="n">change_class</span><span class="p">(</span><span class="s1">&#39;PBA&#39;</span><span class="p">,</span> <span class="s1">&#39;pba&#39;</span><span class="p">)</span>
+<span class="n">change_class</span><span class="p">(</span><span class="s1">&#39;KOMPUTASI&#39;</span><span class="p">,</span> <span class="s1">&#39;komputasi&#39;</span><span class="p">)</span>
+<span class="n">change_class</span><span class="p">(</span><span class="s1">&#39;KOmputasi&#39;</span><span class="p">,</span> <span class="s1">&#39;komputasi&#39;</span><span class="p">)</span>
+<span class="n">change_class</span><span class="p">(</span><span class="s1">&#39;komputasi &#39;</span><span class="p">,</span> <span class="s1">&#39;komputasi&#39;</span><span class="p">)</span>
+<span class="n">change_class</span><span class="p">(</span><span class="s1">&#39;komputai&#39;</span><span class="p">,</span> <span class="s1">&#39;komputasi&#39;</span><span class="p">)</span>
+<span class="n">change_class</span><span class="p">(</span><span class="s1">&#39;klasifikasi&#39;</span><span class="p">,</span> <span class="s1">&#39;komputasi&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>komputasi    402
+rpl          168
+pba           26
+Name: label, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="remove-dataset-yang-nan">
+<h2>Remove dataset yang NAN<a class="headerlink" href="#remove-dataset-yang-nan" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NPM          0
+Judul        6
+abstrak     26
+Prodi        0
+label      259
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">dropna</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">isna</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>abstrak    0
+label      0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
+[nltk_data]   Package punkt is already up-to-date!
+[nltk_data] Downloading package stopwords to /root/nltk_data...
+[nltk_data]   Package stopwords is already up-to-date!
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="pre-processing">
+<h2>Pre-Processing<a class="headerlink" href="#pre-processing" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Prepocessing</span><span class="p">:</span>
+  <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">listStopword</span> <span class="o">=</span>  <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;indonesian&#39;</span><span class="p">))</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">stemmer</span> <span class="o">=</span> <span class="n">PorterStemmer</span><span class="p">()</span>
+
+  <span class="k">def</span> <span class="nf">remove_emoji</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">string</span><span class="p">):</span> <span class="c1">#remove emoji</span>
+    <span class="n">emoji_pattern</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s2">&quot;[&quot;</span>
+      <span class="sa">u</span><span class="s2">&quot;</span><span class="se">\U0001F600</span><span class="s2">-</span><span class="se">\U0001F64F</span><span class="s2">&quot;</span>  <span class="c1"># emoticons</span>
+      <span class="sa">u</span><span class="s2">&quot;</span><span class="se">\U0001F300</span><span class="s2">-</span><span class="se">\U0001F5FF</span><span class="s2">&quot;</span>  <span class="c1"># symbols &amp; pictographs</span>
+      <span class="sa">u</span><span class="s2">&quot;</span><span class="se">\U0001F680</span><span class="s2">-</span><span class="se">\U0001F6FF</span><span class="s2">&quot;</span>  <span class="c1"># transport &amp; map symbols</span>
+      <span class="sa">u</span><span class="s2">&quot;</span><span class="se">\U0001F1E0</span><span class="s2">-</span><span class="se">\U0001F1FF</span><span class="s2">&quot;</span>  <span class="c1"># flags (iOS)</span>
+      <span class="sa">u</span><span class="s2">&quot;</span><span class="se">\U00002702</span><span class="s2">-</span><span class="se">\U000027B0</span><span class="s2">&quot;</span>
+      <span class="sa">u</span><span class="s2">&quot;</span><span class="se">\U000024C2</span><span class="s2">-</span><span class="se">\U0001F251</span><span class="s2">&quot;</span>
+      <span class="s2">&quot;]+&quot;</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="n">re</span><span class="o">.</span><span class="n">UNICODE</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">emoji_pattern</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">string</span><span class="p">)</span>
+
+  <span class="k">def</span> <span class="nf">remove_unwanted</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">document</span><span class="p">):</span> <span class="c1">#clean text</span>
+    <span class="c1"># remove user mentions</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;@[A-Za-z0-9_]+&quot;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">,</span> <span class="n">document</span><span class="p">)</span>
+    <span class="c1"># remove URLS </span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;http\S+&#39;</span><span class="p">,</span> <span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="n">document</span><span class="p">)</span>
+    <span class="c1"># remove hashtags</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;#[A-Za-z0-9_]+&quot;</span><span class="p">,</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">document</span><span class="p">)</span>
+    <span class="c1"># remove emoji&#39;s</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">remove_emoji</span><span class="p">(</span><span class="n">document</span><span class="p">)</span>
+    <span class="c1"># remove punctuation</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="s2">&quot;[^0-9A-Za-z ]&quot;</span><span class="p">,</span> <span class="s2">&quot;&quot;</span> <span class="p">,</span> <span class="n">document</span><span class="p">)</span>
+    <span class="c1"># remove double spaces</span>
+    <span class="n">document</span> <span class="o">=</span> <span class="n">document</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;  &#39;</span><span class="p">,</span><span class="s2">&quot; &quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">document</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+  
+  <span class="k">def</span> <span class="nf">tokenize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span> <span class="c1">#tokenize -&gt; memisah kalimat </span>
+    <span class="k">return</span> <span class="n">word_tokenize</span><span class="p">(</span><span class="n">text</span><span class="o">.</span><span class="n">translate</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">maketrans</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">string</span><span class="o">.</span><span class="n">punctuation</span><span class="p">))</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span>
+  
+  <span class="k">def</span> <span class="nf">stopWord</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span> <span class="c1">#stopword -&gt; menghapus kata hubung</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">kata</span> <span class="k">for</span> <span class="n">kata</span> <span class="ow">in</span> <span class="n">text</span> <span class="k">if</span> <span class="n">kata</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">listStopword</span><span class="p">]</span>
+  
+  <span class="k">def</span> <span class="nf">slank_word</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span> <span class="c1">#slank word -&gt; mengganti kata yang tidak baku</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">replace_slang</span><span class="p">(</span><span class="n">kata</span><span class="p">)</span> <span class="k">for</span> <span class="n">kata</span> <span class="ow">in</span> <span class="n">text</span><span class="p">]</span>
+
+  <span class="k">def</span> <span class="nf">stemming</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span> <span class="c1">#stemming -&gt; mengganti kata menjadi kata dasar</span>
+    <span class="k">return</span> <span class="s2">&quot; &quot;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="n">kata</span><span class="p">)</span> <span class="k">for</span> <span class="n">kata</span> <span class="ow">in</span> <span class="n">text</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">preprocessing</span> <span class="o">=</span> <span class="n">Prepocessing</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="clean-text">
+<h3>Clean Text<a class="headerlink" href="#clean-text" title="Permalink to this heading">#</a></h3>
+<p>Clean Text berfungsi untuk menghilangkan emoji, mention, url, hashtags, double space, dan punctuation</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;clean&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">remove_unwanted</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="tokenize">
+<h3>Tokenize<a class="headerlink" href="#tokenize" title="Permalink to this heading">#</a></h3>
+<p>Tokenization adalah cara memisahkan sepotong teks menjadi unit yang lebih kecil yang disebut token. Di sini, token dapat berupa kata, karakter, atau subkata. Oleh karena itu, tokenisasi dapat secara luas diklasifikasikan menjadi 3 jenis - tokenisasi kata, karakter, dan subkata (karakter n-gram).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;tokenize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;clean&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="stopword">
+<h3>Stopword<a class="headerlink" href="#stopword" title="Permalink to this heading">#</a></h3>
+<p>Stopwords adalah kata yang paling umum dalam bahasa alami apa pun. Untuk tujuan menganalisis data teks dan membangun model NLP, stopwords ini mungkin tidak menambah banyak nilai pada arti dokumen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;stopword&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;tokenize&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">stopWord</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="slank-word">
+<h3>Slank Word<a class="headerlink" href="#slank-word" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;slankword&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;stopword&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">slank_word</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="stemming">
+<h3>Stemming<a class="headerlink" href="#stemming" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;stem&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;slankword&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">preprocessing</span><span class="o">.</span><span class="n">stemming</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;abstrak&#39;</span><span class="p">,</span> <span class="s1">&#39;clean&#39;</span><span class="p">,</span> <span class="s1">&#39;tokenize&#39;</span><span class="p">,</span> <span class="s1">&#39;stopword&#39;</span><span class="p">,</span> <span class="s1">&#39;slankword&#39;</span><span class="p">,</span> <span class="s1">&#39;stem&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-6db1d194-8a5f-4b1a-8376-fb0cfb562ca6">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>abstrak</th>
+      <th>clean</th>
+      <th>tokenize</th>
+      <th>stopword</th>
+      <th>slankword</th>
+      <th>stem</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Sistem  informasi  akademik  (SIAKAD) merupaka...</td>
+      <td>Sistem informasi akademik SIAKAD merupakan sis...</td>
+      <td>[sistem, informasi, akademik, siakad, merupaka...</td>
+      <td>[sistem, informasi, akademik, siakad, sistem, ...</td>
+      <td>[sistem, informasi, akademik, siakad, sistem, ...</td>
+      <td>sistem informasi akademik siakad sistem inform...</td>
+      <td>rpl</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Berjalannya koneksi jaringan komputer dengan l...</td>
+      <td>Berjalannya koneksi jaringan komputer dengan l...</td>
+      <td>[berjalannya, koneksi, jaringan, komputer, den...</td>
+      <td>[berjalannya, koneksi, jaringan, komputer, lan...</td>
+      <td>[berjalannya, koneksi, jaringan, komputer, lan...</td>
+      <td>berjalannya koneksi jaringan komput lancar gan...</td>
+      <td>rpl</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Web server adalah sebuah perangkat lunak serve...</td>
+      <td>Web server adalah sebuah perangkat lunak serve...</td>
+      <td>[web, server, adalah, sebuah, perangkat, lunak...</td>
+      <td>[web, server, perangkat, lunak, server, berfun...</td>
+      <td>[web, server, perangkat, lunak, server, berfun...</td>
+      <td>web server perangkat lunak server berfungsimen...</td>
+      <td>rpl</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Seiring perkembangan teknologi yang ada diduni...</td>
+      <td>Seiring perkembangan teknologi yang ada diduni...</td>
+      <td>[seiring, perkembangan, teknologi, yang, ada, ...</td>
+      <td>[seiring, perkembangan, teknologi, didunia, mu...</td>
+      <td>[seiring, perkembangan, teknologi, didunia, mu...</td>
+      <td>seir perkembangan teknolog didunia muncul tekn...</td>
+      <td>komputasi</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Gerak pekerja ada pada game yang memiliki genr...</td>
+      <td>Gerak pekerja ada pada game yang memiliki genr...</td>
+      <td>[gerak, pekerja, ada, pada, game, yang, memili...</td>
+      <td>[gerak, pekerja, game, memiliki, genre, rts, r...</td>
+      <td>[gerak, pekerja, game, memiliki, genre, rts, r...</td>
+      <td>gerak pekerja game memiliki genr rt realtim st...</td>
+      <td>komputasi</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>591</th>
+      <td>Investasi saham selama ini memiliki resiko ker...</td>
+      <td>Investasi saham selama ini memiliki resiko ker...</td>
+      <td>[investasi, saham, selama, ini, memiliki, resi...</td>
+      <td>[investasi, saham, memiliki, resiko, kerugian,...</td>
+      <td>[investasi, saham, memiliki, resiko, kerugian,...</td>
+      <td>investasi saham memiliki resiko kerugian dikar...</td>
+      <td>komputasi</td>
+    </tr>
+    <tr>
+      <th>592</th>
+      <td>Information Retrieval (IR) merupakan pengambil...</td>
+      <td>Information Retrieval IR merupakan pengambilan...</td>
+      <td>[information, retrieval, ir, merupakan, pengam...</td>
+      <td>[information, retrieval, ir, pengambilan, info...</td>
+      <td>[information, retrieval, ir, pengambilan, info...</td>
+      <td>inform retriev ir pengambilan informasi tersim...</td>
+      <td>pba</td>
+    </tr>
+    <tr>
+      <th>593</th>
+      <td>Klasifikasi citra merupakan proses pengelompok...</td>
+      <td>Klasifikasi citra merupakan proses pengelompok...</td>
+      <td>[klasifikasi, citra, merupakan, proses, pengel...</td>
+      <td>[klasifikasi, citra, proses, pengelompokan, pi...</td>
+      <td>[klasifikasi, citra, proses, pengelompokan, pi...</td>
+      <td>klasifikasi citra prose pengelompokan piksel c...</td>
+      <td>komputasi</td>
+    </tr>
+    <tr>
+      <th>594</th>
+      <td>Identifikasi atribut pejalan kaki merupakan sa...</td>
+      <td>Identifikasi atribut pejalan kaki merupakan sa...</td>
+      <td>[identifikasi, atribut, pejalan, kaki, merupak...</td>
+      <td>[identifikasi, atribut, pejalan, kaki, salah, ...</td>
+      <td>[identifikasi, atribut, pejalan, kaki, salah, ...</td>
+      <td>identifikasi atribut pejalan kaki salah peneli...</td>
+      <td>komputasi</td>
+    </tr>
+    <tr>
+      <th>595</th>
+      <td>Topik deteksi objek telah menarik perhatian ya...</td>
+      <td>Topik deteksi objek telah menarik perhatian ya...</td>
+      <td>[topik, deteksi, objek, telah, menarik, perhat...</td>
+      <td>[topik, deteksi, objek, menarik, perhatian, pe...</td>
+      <td>[topik, deteksi, objek, menarik, perhatian, pe...</td>
+      <td>topik deteksi objek menarik perhatian perkemba...</td>
+      <td>komputasi</td>
+    </tr>
+  </tbody>
+</table>
+<p>596 rows × 7 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-6db1d194-8a5f-4b1a-8376-fb0cfb562ca6')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-6db1d194-8a5f-4b1a-8376-fb0cfb562ca6 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-6db1d194-8a5f-4b1a-8376-fb0cfb562ca6');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">data</span><span class="p">[[</span><span class="s1">&#39;stem&#39;</span><span class="p">,</span> <span class="s1">&#39;label&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="word2vec">
+<h3>Word2Vec<a class="headerlink" href="#word2vec" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sentences</span> <span class="o">=</span> <span class="p">[</span><span class="n">word_tokenize</span><span class="p">(</span><span class="n">kata</span><span class="p">)</span> <span class="k">for</span> <span class="n">kata</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">stem</span><span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "913a64cb4ae74a82b4401b69895e2903"}</script></div>
+</div>
+<div class="section" id="train-word2vec">
+<h4>Train Word2Vec<a class="headerlink" href="#train-word2vec" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_word2vec</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">vector_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sg</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hs</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyboardInterrupt</span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-24-948d02267c0e&gt;</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">model_word2vec</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="p">(</span><span class="n">sentences</span><span class="p">,</span> <span class="n">vector_size</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">min_count</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">sg</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">hs</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/gensim/models/word2vec.py</span> in <span class="ni">__init__</span><span class="nt">(self, sentences, corpus_file, vector_size, alpha, window, min_count, max_vocab_size, sample, seed, workers, min_alpha, sg, hs, negative, ns_exponent, cbow_mean, hashfxn, epochs, null_word, trim_rule, sorted_vocab, batch_words, compute_loss, callbacks, comment, max_final_vocab, shrink_windows)</span>
+<span class="g g-Whitespace">    </span><span class="mi">428</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_check_corpus_sanity</span><span class="p">(</span><span class="n">corpus_iterable</span><span class="o">=</span><span class="n">corpus_iterable</span><span class="p">,</span> <span class="n">corpus_file</span><span class="o">=</span><span class="n">corpus_file</span><span class="p">,</span> <span class="n">passes</span><span class="o">=</span><span class="p">(</span><span class="n">epochs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">429</span>             <span class="bp">self</span><span class="o">.</span><span class="n">build_vocab</span><span class="p">(</span><span class="n">corpus_iterable</span><span class="o">=</span><span class="n">corpus_iterable</span><span class="p">,</span> <span class="n">corpus_file</span><span class="o">=</span><span class="n">corpus_file</span><span class="p">,</span> <span class="n">trim_rule</span><span class="o">=</span><span class="n">trim_rule</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">430</span>             <span class="bp">self</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">431</span>                 <span class="n">corpus_iterable</span><span class="o">=</span><span class="n">corpus_iterable</span><span class="p">,</span> <span class="n">corpus_file</span><span class="o">=</span><span class="n">corpus_file</span><span class="p">,</span> <span class="n">total_examples</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">corpus_count</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">432</span>                 <span class="n">total_words</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">corpus_total_words</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">epochs</span><span class="p">,</span> <span class="n">start_alpha</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/gensim/models/word2vec.py</span> in <span class="ni">train</span><span class="nt">(self, corpus_iterable, corpus_file, total_examples, total_words, epochs, start_alpha, end_alpha, word_count, queue_factor, report_delay, compute_loss, callbacks, **kwargs)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1071</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1072</span>             <span class="k">if</span> <span class="n">corpus_iterable</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1073</span>                 <span class="n">trained_word_count_epoch</span><span class="p">,</span> <span class="n">raw_word_count_epoch</span><span class="p">,</span> <span class="n">job_tally_epoch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_train_epoch</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1074</span>                     <span class="n">corpus_iterable</span><span class="p">,</span> <span class="n">cur_epoch</span><span class="o">=</span><span class="n">cur_epoch</span><span class="p">,</span> <span class="n">total_examples</span><span class="o">=</span><span class="n">total_examples</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1075</span>                     <span class="n">total_words</span><span class="o">=</span><span class="n">total_words</span><span class="p">,</span> <span class="n">queue_factor</span><span class="o">=</span><span class="n">queue_factor</span><span class="p">,</span> <span class="n">report_delay</span><span class="o">=</span><span class="n">report_delay</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/gensim/models/word2vec.py</span> in <span class="ni">_train_epoch</span><span class="nt">(self, data_iterable, cur_epoch, total_examples, total_words, queue_factor, report_delay, callbacks)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1432</span>             <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1433</span> 
+<span class="ne">-&gt; </span><span class="mi">1434</span>         <span class="n">trained_word_count</span><span class="p">,</span> <span class="n">raw_word_count</span><span class="p">,</span> <span class="n">job_tally</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_log_epoch_progress</span><span class="p">(</span>
+<span class="g g-Whitespace">   </span><span class="mi">1435</span>             <span class="n">progress_queue</span><span class="p">,</span> <span class="n">job_queue</span><span class="p">,</span> <span class="n">cur_epoch</span><span class="o">=</span><span class="n">cur_epoch</span><span class="p">,</span> <span class="n">total_examples</span><span class="o">=</span><span class="n">total_examples</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1436</span>             <span class="n">total_words</span><span class="o">=</span><span class="n">total_words</span><span class="p">,</span> <span class="n">report_delay</span><span class="o">=</span><span class="n">report_delay</span><span class="p">,</span> <span class="n">is_corpus_file_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/gensim/models/word2vec.py</span> in <span class="ni">_log_epoch_progress</span><span class="nt">(self, progress_queue, job_queue, cur_epoch, total_examples, total_words, report_delay, is_corpus_file_mode)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1287</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1288</span>         <span class="k">while</span> <span class="n">unfinished_worker_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1289</span>             <span class="n">report</span> <span class="o">=</span> <span class="n">progress_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>  <span class="c1"># blocks if workers too slow</span>
+<span class="g g-Whitespace">   </span><span class="mi">1290</span>             <span class="k">if</span> <span class="n">report</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># a thread reporting that it finished</span>
+<span class="g g-Whitespace">   </span><span class="mi">1291</span>                 <span class="n">unfinished_worker_count</span> <span class="o">-=</span> <span class="mi">1</span>
+
+<span class="nn">/usr/lib/python3.9/queue.py</span> in <span class="ni">get</span><span class="nt">(self, block, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">169</span>             <span class="k">elif</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">170</span>                 <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_qsize</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">171</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">not_empty</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span>             <span class="k">elif</span> <span class="n">timeout</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">173</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;timeout&#39; must be a non-negative number&quot;</span><span class="p">)</span>
+
+<span class="nn">/usr/lib/python3.9/threading.py</span> in <span class="ni">wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">310</span>         <span class="k">try</span><span class="p">:</span>    <span class="c1"># restore state no matter what (e.g., KeyboardInterrupt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">311</span>             <span class="k">if</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">312</span>                 <span class="n">waiter</span><span class="o">.</span><span class="n">acquire</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">313</span>                 <span class="n">gotit</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span>             <span class="k">else</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="save-word2vec">
+<h4>Save Word2Vec<a class="headerlink" href="#save-word2vec" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">folder</span> <span class="o">=</span> <span class="s1">&#39;w2v/&#39;</span>
+<span class="n">path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/prosaindata/prosaindata/&#39;</span> <span class="o">+</span> <span class="n">folder</span> 
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">model_word2vec</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="s1">&#39;uts_text_klasifikasi.w2v&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="encoding">
+<h3>Encoding<a class="headerlink" href="#encoding" title="Permalink to this heading">#</a></h3>
+<p>setelah dirubah ke word to vector maka tidak bisa langsung dilakukan training model maka harus dirubah dari vector ke sentence kembali.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">w2v</span> <span class="o">=</span> <span class="n">Word2Vec</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="o">+</span><span class="s1">&#39;uts_text_klasifikasi.w2v&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">wv</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sent_vector</span><span class="p">(</span><span class="n">sentence</span><span class="p">,</span> <span class="n">w2v_model</span><span class="p">):</span>
+  <span class="n">vecs</span> <span class="o">=</span> <span class="p">[</span><span class="n">w2v_model</span><span class="p">[</span><span class="n">kata</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="k">for</span> <span class="n">kata</span> <span class="ow">in</span> <span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">if</span> <span class="n">kata</span> <span class="ow">in</span> <span class="n">w2v_model</span><span class="p">]</span>
+  <span class="n">sent_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">vecs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">sent_vec</span>
+
+<span class="k">def</span> <span class="nf">norm_sent_vector</span><span class="p">(</span><span class="n">sentence</span><span class="p">,</span> <span class="n">w2v_model</span><span class="p">):</span>
+  <span class="n">vecs</span> <span class="o">=</span> <span class="p">[</span><span class="n">w2v_model</span><span class="p">[</span><span class="n">kata</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="k">for</span> <span class="n">kata</span> <span class="ow">in</span> <span class="p">(</span><span class="n">sentence</span><span class="p">)</span> <span class="k">if</span> <span class="n">kata</span> <span class="ow">in</span> <span class="n">w2v_model</span><span class="p">]</span>
+  <span class="n">norm_vecs</span> <span class="o">=</span> <span class="p">[</span><span class="n">vec</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span> <span class="k">for</span> <span class="n">vec</span> <span class="ow">in</span> <span class="n">vecs</span> <span class="k">if</span> <span class="n">np</span><span class="o">.</span><span class="n">linalg</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">vec</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">]</span>
+  <span class="n">sent_vec</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">norm_vecs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">sent_vec</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vecs</span> <span class="o">=</span> <span class="p">[</span><span class="n">norm_sent_vector</span><span class="p">(</span><span class="n">kata</span><span class="p">,</span> <span class="n">w2v</span><span class="p">)</span> <span class="k">for</span> <span class="n">kata</span> <span class="ow">in</span> <span class="n">sentences</span><span class="p">]</span>
+<span class="n">vecs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">vecs</span><span class="p">)</span>
+<span class="n">vecs</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(596, 128)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="split-dataset">
+<h3>Split dataset<a class="headerlink" href="#split-dataset" title="Permalink to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="tanpa-word-to-vector">
+<h4>Tanpa Word to vector<a class="headerlink" href="#tanpa-word-to-vector" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">stem</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">label</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_test</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((476,), (120,))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="word-to-vector">
+<h4>Word to vector<a class="headerlink" href="#word-to-vector" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">vecs</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">label</span>
+<span class="n">X_train_vec</span><span class="p">,</span> <span class="n">X_test_vec</span><span class="p">,</span> <span class="n">y_train_vec</span><span class="p">,</span> <span class="n">y_test_vec</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X_train_vec</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">X_test_vec</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((476, 128), (120, 128))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="modelling">
+<h2>Modelling<a class="headerlink" href="#modelling" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">MultinomialNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.pipeline</span> <span class="kn">import</span> <span class="n">Pipeline</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">RandomizedSearchCV</span>
+<span class="kn">from</span> <span class="nn">jcopml.tuning</span> <span class="kn">import</span> <span class="n">random_search_params</span> <span class="k">as</span> <span class="n">rsp</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">jcopml.plot</span> <span class="kn">import</span> <span class="n">plot_confusion_matrix</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="naive-bayes">
+<h3>Naive bayes<a class="headerlink" href="#naive-bayes" title="Permalink to this heading">#</a></h3>
+<div class="section" id="tanpa-word2vec-dan-tanpa-pca">
+<h4>Tanpa Word2Vec dan Tanpa PCA<a class="headerlink" href="#tanpa-word2vec-dan-tanpa-pca" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;prep&#39;</span><span class="p">,</span> <span class="n">CountVectorizer</span><span class="p">()),</span>
+    <span class="c1"># (&#39;pca&#39;, PCA(n_components=)),</span>
+    <span class="p">(</span><span class="s1">&#39;algo&#39;</span><span class="p">,</span> <span class="n">MultinomialNB</span><span class="p">())</span>
+<span class="p">])</span>
+
+<span class="n">model_naive_1</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="p">{},</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">model_naive_1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;best_parameter: </span><span class="si">{</span><span class="n">model_naive_1</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_naive_1</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="n">model_naive_1</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="n">model_naive_1</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 4 folds for each of 1 candidates, totalling 4 fits
+best_parameter: {}
+0.9516806722689075 0.7857142857142856 0.7916666666666666
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="evaluasi">
+<h5>Evaluasi<a class="headerlink" href="#evaluasi" title="Permalink to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_naive_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/d795a80c8841325883c69e86c0b2c1a950edb6d910dd2406922b320d0dc135ea.png" src="_images/d795a80c8841325883c69e86c0b2c1a950edb6d910dd2406922b320d0dc135ea.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="word2vec-dan-tanpa-pca">
+<h4>Word2Vec dan Tanpa PCA<a class="headerlink" href="#word2vec-dan-tanpa-pca" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="c1"># (&#39;pca&#39;, PCA(n_components=100)),</span>
+    <span class="p">(</span><span class="s1">&#39;algo&#39;</span><span class="p">,</span> <span class="n">GaussianNB</span><span class="p">())</span>
+<span class="p">])</span>
+
+<span class="n">model_naive_2</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="p">{},</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">model_naive_2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vec</span><span class="p">,</span> <span class="n">y_train_vec</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;best_parameter: </span><span class="si">{</span><span class="n">model_naive_2</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_naive_2</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train_vec</span><span class="p">,</span> <span class="n">y_train_vec</span><span class="p">),</span> <span class="n">model_naive_2</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="n">model_naive_2</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_vec</span><span class="p">,</span> <span class="n">y_test_vec</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 4 folds for each of 1 candidates, totalling 4 fits
+best_parameter: {}
+0.7899159663865546 0.7899159663865545 0.7583333333333333
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id1">
+<h5>Evaluasi<a class="headerlink" href="#id1" title="Permalink to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">X_train_vec</span><span class="p">,</span> <span class="n">y_train_vec</span><span class="p">,</span> <span class="n">X_test_vec</span><span class="p">,</span> <span class="n">y_test_vec</span><span class="p">,</span> <span class="n">model_naive_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/a97c9935f76368171a05fc0bcfd77a90ef8cf361bb69d2b2fb64e6ff7175d8a7.png" src="_images/a97c9935f76368171a05fc0bcfd77a90ef8cf361bb69d2b2fb64e6ff7175d8a7.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="word2vec-dan-pca">
+<h4>Word2Vec dan PCA<a class="headerlink" href="#word2vec-dan-pca" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">100</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s1">&#39;algo&#39;</span><span class="p">,</span> <span class="n">GaussianNB</span><span class="p">())</span>
+<span class="p">])</span>
+
+<span class="n">model_naive_3</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="p">{},</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">model_naive_3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vec</span><span class="p">,</span> <span class="n">y_train_vec</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;best_parameter: </span><span class="si">{</span><span class="n">model_naive_3</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_naive_3</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train_vec</span><span class="p">,</span> <span class="n">y_train_vec</span><span class="p">),</span> <span class="n">model_naive_3</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="n">model_naive_3</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_vec</span><span class="p">,</span> <span class="n">y_test_vec</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 4 folds for each of 1 candidates, totalling 4 fits
+best_parameter: {}
+0.8592436974789915 0.7121848739495797 0.725
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id2">
+<h5>Evaluasi<a class="headerlink" href="#id2" title="Permalink to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">X_train_vec</span><span class="p">,</span> <span class="n">y_train_vec</span><span class="p">,</span> <span class="n">X_test_vec</span><span class="p">,</span> <span class="n">y_test_vec</span><span class="p">,</span> <span class="n">model_naive_3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/1faf47b58073f17d98f8846817d61d8983cb36ad9c20654c3197e9f91b10e47b.png" src="_images/1faf47b58073f17d98f8846817d61d8983cb36ad9c20654c3197e9f91b10e47b.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="knn">
+<h3>KNN<a class="headerlink" href="#knn" title="Permalink to this heading">#</a></h3>
+<div class="section" id="id3">
+<h4>Tanpa Word2Vec dan Tanpa PCA<a class="headerlink" href="#id3" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;prep&#39;</span><span class="p">,</span> <span class="n">CountVectorizer</span><span class="p">()),</span>
+    <span class="c1"># (&#39;pca&#39;, PCA(n_components=)),</span>
+    <span class="p">(</span><span class="s1">&#39;algo&#39;</span><span class="p">,</span> <span class="n">KNeighborsClassifier</span><span class="p">())</span>
+<span class="p">])</span>
+
+<span class="n">model_knn_1</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="p">{},</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">model_knn_1</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;best_parameter: </span><span class="si">{</span><span class="n">model_knn_1</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_knn_1</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">),</span> <span class="n">model_knn_1</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="n">model_knn_1</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 4 folds for each of 1 candidates, totalling 4 fits
+best_parameter: {}
+0.8613445378151261 0.7163865546218489 0.725
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id4">
+<h5>Evaluasi<a class="headerlink" href="#id4" title="Permalink to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">X_test</span><span class="p">,</span> <span class="n">y_test</span><span class="p">,</span> <span class="n">model_knn_1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/558c1f64f59467d07eed6dc4f8e1039486a30257cd5dd73346f37c500870bda6.png" src="_images/558c1f64f59467d07eed6dc4f8e1039486a30257cd5dd73346f37c500870bda6.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h4>Word2Vec dan Tanpa PCA<a class="headerlink" href="#id5" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="c1"># (&#39;pca&#39;, PCA(n_components=100)),</span>
+    <span class="p">(</span><span class="s1">&#39;algo&#39;</span><span class="p">,</span> <span class="n">KNeighborsClassifier</span><span class="p">())</span>
+<span class="p">])</span>
+
+<span class="n">model_knn_2</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="p">{},</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">model_knn_2</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vec</span><span class="p">,</span> <span class="n">y_train_vec</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;best_parameter: </span><span class="si">{</span><span class="n">model_knn_2</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_knn_2</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train_vec</span><span class="p">,</span> <span class="n">y_train_vec</span><span class="p">),</span> <span class="n">model_knn_2</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="n">model_knn_2</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_vec</span><span class="p">,</span> <span class="n">y_test_vec</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 4 folds for each of 1 candidates, totalling 4 fits
+best_parameter: {}
+0.8571428571428571 0.7920168067226891 0.775
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id6">
+<h5>Evaluasi<a class="headerlink" href="#id6" title="Permalink to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">X_train_vec</span><span class="p">,</span> <span class="n">y_train_vec</span><span class="p">,</span> <span class="n">X_test_vec</span><span class="p">,</span> <span class="n">y_test_vec</span><span class="p">,</span> <span class="n">model_knn_2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/62da2fe3e98a00b73e6d03aeca3c1d2f21c49c2b6d91ce86404e1bbb6cb9fa55.png" src="_images/62da2fe3e98a00b73e6d03aeca3c1d2f21c49c2b6d91ce86404e1bbb6cb9fa55.png" />
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="id7">
+<h4>Word2Vec dan PCA<a class="headerlink" href="#id7" title="Permalink to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="p">([</span>
+    <span class="p">(</span><span class="s1">&#39;pca&#39;</span><span class="p">,</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">100</span><span class="p">)),</span>
+    <span class="p">(</span><span class="s1">&#39;algo&#39;</span><span class="p">,</span> <span class="n">KNeighborsClassifier</span><span class="p">())</span>
+<span class="p">])</span>
+
+<span class="n">model_knn_3</span> <span class="o">=</span> <span class="n">RandomizedSearchCV</span><span class="p">(</span><span class="n">pipeline</span><span class="p">,</span> <span class="p">{},</span> <span class="n">cv</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">n_iter</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">n_jobs</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">model_knn_3</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train_vec</span><span class="p">,</span> <span class="n">y_train_vec</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;best_parameter: </span><span class="si">{</span><span class="n">model_knn_3</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">model_knn_3</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_train_vec</span><span class="p">,</span> <span class="n">y_train_vec</span><span class="p">),</span> <span class="n">model_knn_3</span><span class="o">.</span><span class="n">best_score_</span><span class="p">,</span> <span class="n">model_knn_3</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">X_test_vec</span><span class="p">,</span> <span class="n">y_test_vec</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fitting 4 folds for each of 1 candidates, totalling 4 fits
+best_parameter: {}
+0.8592436974789915 0.796218487394958 0.775
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id8">
+<h5>Evaluasi<a class="headerlink" href="#id8" title="Permalink to this heading">#</a></h5>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_confusion_matrix</span><span class="p">(</span><span class="n">X_train_vec</span><span class="p">,</span> <span class="n">y_train_vec</span><span class="p">,</span> <span class="n">X_test_vec</span><span class="p">,</span> <span class="n">y_test_vec</span><span class="p">,</span> <span class="n">model_knn_3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/0933803b2b0a3bce231a60c342e4cfcbc01c93e05ba174114744406994cca553.png" src="_images/0933803b2b0a3bce231a60c342e4cfcbc01c93e05ba174114744406994cca553.png" />
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="psd-klasifikasi_teks_2.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Klasifikassi Teks Word2Vec</p>
+      </div>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#intsal-library-yang-dibutuhkan">Intsal library yang dibutuhkan</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#load-dataset">Load Dataset</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#cek-count-label-dan-ubah-tabel-yang-typo">Cek count label dan ubah tabel yang typo</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#remove-dataset-yang-nan">Remove dataset yang NAN</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-processing">Pre-Processing</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#clean-text">Clean Text</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tokenize">Tokenize</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stopword">Stopword</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#slank-word">Slank Word</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#stemming">Stemming</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#word2vec">Word2Vec</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#train-word2vec">Train Word2Vec</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#save-word2vec">Save Word2Vec</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#encoding">Encoding</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#split-dataset">Split dataset</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tanpa-word-to-vector">Tanpa Word to vector</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#word-to-vector">Word to vector</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modelling">Modelling</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#naive-bayes">Naive bayes</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#tanpa-word2vec-dan-tanpa-pca">Tanpa Word2Vec dan Tanpa PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#evaluasi">Evaluasi</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#word2vec-dan-tanpa-pca">Word2Vec dan Tanpa PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id1">Evaluasi</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#word2vec-dan-pca">Word2Vec dan PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id2">Evaluasi</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#knn">KNN</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id3">Tanpa Word2Vec dan Tanpa PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id4">Evaluasi</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id5">Word2Vec dan Tanpa PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id6">Evaluasi</a></li>
+</ul>
+</li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#id7">Word2Vec dan PCA</a><ul class="nav section-nav flex-column">
+<li class="toc-h5 nav-item toc-entry"><a class="reference internal nav-link" href="#id8">Evaluasi</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By 200411100171 Ahmad Farisul Haq
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
