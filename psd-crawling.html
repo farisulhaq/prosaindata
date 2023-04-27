@@ -164,6 +164,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="psd-klasifikasi_teks_1.html">Klasifikassi Teks Tanpa Word2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="psd-klasifikasi_teks_2.html">Klasifikassi Teks Word2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="psd-uts.html">UTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psd-graph.html">Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psd-pagerank.html">PageRank</a></li>
 </ul>
 
     </div>
@@ -731,18 +733,11 @@ document.write(`
 <span class="g g-Whitespace">    </span><span class="mi">176</span><span class="s2">             )</span>
 
 <span class="nn">/usr/local/lib/python3.9/dist-packages/urllib3/util/connection.py</span> in <span class="ni">create_connection</span><span class="nt">(address, timeout, source_address, socket_options)</span>
-<span class="g g-Whitespace">     </span><span class="mi">70</span><span class="s2">         )</span>
-<span class="g g-Whitespace">     </span><span class="mi">71</span><span class="s2"> </span>
-<span class="ne">---&gt; </span><span class="mi">72</span><span class="s2">     for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):</span>
-<span class="g g-Whitespace">     </span><span class="mi">73</span><span class="s2">         af, socktype, proto, canonname, sa = res</span>
-<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2">         sock = None</span>
-
-<span class="nn">/usr/lib/python3.9/socket.py</span> in <span class="ni">getaddrinfo</span><span class="nt">(host, port, family, type, proto, flags)</span>
-<span class="g g-Whitespace">    </span><span class="mi">952</span><span class="s2">     # and socket type values to enum constants.</span>
-<span class="g g-Whitespace">    </span><span class="mi">953</span><span class="s2">     addrlist = []</span>
-<span class="ne">--&gt; </span><span class="mi">954</span><span class="s2">     for res in _socket.getaddrinfo(host, port, family, type, proto, flags):</span>
-<span class="g g-Whitespace">    </span><span class="mi">955</span><span class="s2">         af, socktype, proto, canonname, sa = res</span>
-<span class="g g-Whitespace">    </span><span class="mi">956</span><span class="s2">         addrlist.append((_intenum_converter(af, AddressFamily),</span>
+<span class="g g-Whitespace">     </span><span class="mi">83</span><span class="s2">             if source_address:</span>
+<span class="g g-Whitespace">     </span><span class="mi">84</span><span class="s2">                 sock.bind(source_address)</span>
+<span class="ne">---&gt; </span><span class="mi">85</span><span class="s2">             sock.connect(sa)</span>
+<span class="g g-Whitespace">     </span><span class="mi">86</span><span class="s2">             return sock</span>
+<span class="g g-Whitespace">     </span><span class="mi">87</span><span class="s2"> </span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>

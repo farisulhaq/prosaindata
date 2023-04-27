@@ -164,6 +164,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Klasifikassi Teks Tanpa Word2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="psd-klasifikasi_teks_2.html">Klasifikassi Teks Word2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="psd-uts.html">UTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psd-graph.html">Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psd-pagerank.html">PageRank</a></li>
 </ul>
 
     </div>
@@ -434,7 +436,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5c1f3ae2-bf05-4b33-9dae-888d70dac549">
+  <div id="df-4c4c7cb0-3a39-4df4-806a-977d71f70150">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -518,7 +520,7 @@ document.write(`
 </table>
 <p>596 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-5c1f3ae2-bf05-4b33-9dae-888d70dac549')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-4c4c7cb0-3a39-4df4-806a-977d71f70150')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -569,12 +571,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-5c1f3ae2-bf05-4b33-9dae-888d70dac549 button.colab-df-convert');
+          document.querySelector('#df-4c4c7cb0-3a39-4df4-806a-977d71f70150 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-5c1f3ae2-bf05-4b33-9dae-888d70dac549');
+          const element = document.querySelector('#df-4c4c7cb0-3a39-4df4-806a-977d71f70150');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -696,25 +698,25 @@ document.write(`
 <span class="g g-Whitespace">     </span><span class="mi">65</span> 
 
 <span class="nn">/usr/local/lib/python3.9/dist-packages/joblib/parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1059</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1060</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">retrieval_context</span><span class="p">():</span>
-<span class="ne">-&gt; </span><span class="mi">1061</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
-<span class="g g-Whitespace">   </span><span class="mi">1062</span>             <span class="c1"># Make sure that we get a last message telling us we are done</span>
-<span class="g g-Whitespace">   </span><span class="mi">1063</span>             <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span>
+<span class="g g-Whitespace">   </span><span class="mi">1096</span> 
+<span class="g g-Whitespace">   </span><span class="mi">1097</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">retrieval_context</span><span class="p">():</span>
+<span class="ne">-&gt; </span><span class="mi">1098</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1099</span>             <span class="c1"># Make sure that we get a last message telling us we are done</span>
+<span class="g g-Whitespace">   </span><span class="mi">1100</span>             <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span>
 
 <span class="nn">/usr/local/lib/python3.9/dist-packages/joblib/parallel.py</span> in <span class="ni">retrieve</span><span class="nt">(self)</span>
-<span class="g g-Whitespace">    </span><span class="mi">936</span>             <span class="k">try</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">937</span>                 <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="s1">&#39;supports_timeout&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">938</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">))</span>
-<span class="g g-Whitespace">    </span><span class="mi">939</span>                 <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">940</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
+<span class="g g-Whitespace">    </span><span class="mi">973</span>             <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">974</span>                 <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="s1">&#39;supports_timeout&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">975</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">976</span>                 <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">977</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
 
 <span class="nn">/usr/local/lib/python3.9/dist-packages/joblib/_parallel_backends.py</span> in <span class="ni">wrap_future_result</span><span class="nt">(future, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">540</span>         <span class="n">AsyncResults</span><span class="o">.</span><span class="n">get</span> <span class="kn">from</span> <span class="nn">multiprocessing.</span><span class="s2">&quot;&quot;&quot;</span>
-<span class="g g-Whitespace">    </span><span class="mi">541</span><span class="s2">         try:</span>
-<span class="ne">--&gt; </span><span class="mi">542</span><span class="s2">             return future.result(timeout=timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">543</span><span class="s2">         except CfTimeoutError as e:</span>
-<span class="g g-Whitespace">    </span><span class="mi">544</span><span class="s2">             raise TimeoutError from e</span>
+<span class="g g-Whitespace">    </span><span class="mi">565</span>         <span class="n">AsyncResults</span><span class="o">.</span><span class="n">get</span> <span class="kn">from</span> <span class="nn">multiprocessing.</span><span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">    </span><span class="mi">566</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">567</span><span class="s2">             return future.result(timeout=timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">568</span><span class="s2">         except CfTimeoutError as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">569</span><span class="s2">             raise TimeoutError from e</span>
 
 <span class="nn">/usr/lib/python3.9/concurrent/futures/_base.py</span> in <span class="ni">result</span><span class="nt">(self, timeout)</span>
 <span class="g g-Whitespace">    </span><span class="mi">439</span><span class="s2">                     return self.__get_result()</span>

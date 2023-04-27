@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'psd-uts';</script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Graph" href="psd-graph.html" />
     <link rel="prev" title="Klasifikassi Teks Word2Vec" href="psd-klasifikasi_teks_2.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -163,6 +164,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="psd-klasifikasi_teks_1.html">Klasifikassi Teks Tanpa Word2Vec</a></li>
 <li class="toctree-l1"><a class="reference internal" href="psd-klasifikasi_teks_2.html">Klasifikassi Teks Word2Vec</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">UTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psd-graph.html">Graph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psd-pagerank.html">PageRank</a></li>
 </ul>
 
     </div>
@@ -519,7 +522,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-bdbab0fc-f544-4f7a-92ed-54416b3a555e">
+  <div id="df-7013b6d4-96eb-491d-994f-28f04eaec685">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -639,7 +642,7 @@ document.write(`
 </table>
 <p>855 rows × 5 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-bdbab0fc-f544-4f7a-92ed-54416b3a555e')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-7013b6d4-96eb-491d-994f-28f04eaec685')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -690,12 +693,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-bdbab0fc-f544-4f7a-92ed-54416b3a555e button.colab-df-convert');
+          document.querySelector('#df-7013b6d4-96eb-491d-994f-28f04eaec685 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-bdbab0fc-f544-4f7a-92ed-54416b3a555e');
+          const element = document.querySelector('#df-7013b6d4-96eb-491d-994f-28f04eaec685');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -956,7 +959,7 @@ dtype: int64
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-b78848a5-e8c2-46bc-ac4b-921ddd87a84c">
+  <div id="df-2c1d3d43-b9b4-4c53-badd-d2cead60d007">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1100,7 +1103,7 @@ dtype: int64
 </table>
 <p>596 rows × 7 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-b78848a5-e8c2-46bc-ac4b-921ddd87a84c')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-2c1d3d43-b9b4-4c53-badd-d2cead60d007')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -1151,12 +1154,12 @@ dtype: int64
 
       <script>
         const buttonEl =
-          document.querySelector('#df-b78848a5-e8c2-46bc-ac4b-921ddd87a84c button.colab-df-convert');
+          document.querySelector('#df-2c1d3d43-b9b4-4c53-badd-d2cead60d007 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-b78848a5-e8c2-46bc-ac4b-921ddd87a84c');
+          const element = document.querySelector('#df-2c1d3d43-b9b4-4c53-badd-d2cead60d007');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1194,7 +1197,7 @@ dtype: int64
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "c27dff4be16846ba9a86688de941ef6d"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "6391d6079bdc455b8676a9c8046ed26d"}</script></div>
 </div>
 <div class="section" id="train-word2vec">
 <h4>Train Word2Vec<a class="headerlink" href="#train-word2vec" title="Permalink to this heading">#</a></h4>
@@ -1224,25 +1227,25 @@ dtype: int64
 <span class="g g-Whitespace">   </span><span class="mi">1075</span>                     <span class="n">total_words</span><span class="o">=</span><span class="n">total_words</span><span class="p">,</span> <span class="n">queue_factor</span><span class="o">=</span><span class="n">queue_factor</span><span class="p">,</span> <span class="n">report_delay</span><span class="o">=</span><span class="n">report_delay</span><span class="p">,</span>
 
 <span class="nn">/usr/local/lib/python3.9/dist-packages/gensim/models/word2vec.py</span> in <span class="ni">_train_epoch</span><span class="nt">(self, data_iterable, cur_epoch, total_examples, total_words, queue_factor, report_delay, callbacks)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1432</span>             <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1430</span>         <span class="k">for</span> <span class="n">thread</span> <span class="ow">in</span> <span class="n">workers</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1431</span>             <span class="n">thread</span><span class="o">.</span><span class="n">daemon</span> <span class="o">=</span> <span class="kc">True</span>  <span class="c1"># make interrupting the process with ctrl+c easier</span>
+<span class="ne">-&gt; </span><span class="mi">1432</span>             <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 <span class="g g-Whitespace">   </span><span class="mi">1433</span> 
-<span class="ne">-&gt; </span><span class="mi">1434</span>         <span class="n">trained_word_count</span><span class="p">,</span> <span class="n">raw_word_count</span><span class="p">,</span> <span class="n">job_tally</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_log_epoch_progress</span><span class="p">(</span>
-<span class="g g-Whitespace">   </span><span class="mi">1435</span>             <span class="n">progress_queue</span><span class="p">,</span> <span class="n">job_queue</span><span class="p">,</span> <span class="n">cur_epoch</span><span class="o">=</span><span class="n">cur_epoch</span><span class="p">,</span> <span class="n">total_examples</span><span class="o">=</span><span class="n">total_examples</span><span class="p">,</span>
-<span class="g g-Whitespace">   </span><span class="mi">1436</span>             <span class="n">total_words</span><span class="o">=</span><span class="n">total_words</span><span class="p">,</span> <span class="n">report_delay</span><span class="o">=</span><span class="n">report_delay</span><span class="p">,</span> <span class="n">is_corpus_file_mode</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="g g-Whitespace">   </span><span class="mi">1434</span>         <span class="n">trained_word_count</span><span class="p">,</span> <span class="n">raw_word_count</span><span class="p">,</span> <span class="n">job_tally</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_log_epoch_progress</span><span class="p">(</span>
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/gensim/models/word2vec.py</span> in <span class="ni">_log_epoch_progress</span><span class="nt">(self, progress_queue, job_queue, cur_epoch, total_examples, total_words, report_delay, is_corpus_file_mode)</span>
-<span class="g g-Whitespace">   </span><span class="mi">1287</span> 
-<span class="g g-Whitespace">   </span><span class="mi">1288</span>         <span class="k">while</span> <span class="n">unfinished_worker_count</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="ne">-&gt; </span><span class="mi">1289</span>             <span class="n">report</span> <span class="o">=</span> <span class="n">progress_queue</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>  <span class="c1"># blocks if workers too slow</span>
-<span class="g g-Whitespace">   </span><span class="mi">1290</span>             <span class="k">if</span> <span class="n">report</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># a thread reporting that it finished</span>
-<span class="g g-Whitespace">   </span><span class="mi">1291</span>                 <span class="n">unfinished_worker_count</span> <span class="o">-=</span> <span class="mi">1</span>
+<span class="nn">/usr/lib/python3.9/threading.py</span> in <span class="ni">start</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">902</span>                 <span class="k">del</span> <span class="n">_limbo</span><span class="p">[</span><span class="bp">self</span><span class="p">]</span>
+<span class="g g-Whitespace">    </span><span class="mi">903</span>             <span class="k">raise</span>
+<span class="ne">--&gt; </span><span class="mi">904</span>         <span class="bp">self</span><span class="o">.</span><span class="n">_started</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">905</span> 
+<span class="g g-Whitespace">    </span><span class="mi">906</span>     <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 
-<span class="nn">/usr/lib/python3.9/queue.py</span> in <span class="ni">get</span><span class="nt">(self, block, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">169</span>             <span class="k">elif</span> <span class="n">timeout</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">170</span>                 <span class="k">while</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_qsize</span><span class="p">():</span>
-<span class="ne">--&gt; </span><span class="mi">171</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">not_empty</span><span class="o">.</span><span class="n">wait</span><span class="p">()</span>
-<span class="g g-Whitespace">    </span><span class="mi">172</span>             <span class="k">elif</span> <span class="n">timeout</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">173</span>                 <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;&#39;timeout&#39; must be a non-negative number&quot;</span><span class="p">)</span>
+<span class="nn">/usr/lib/python3.9/threading.py</span> in <span class="ni">wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">579</span>             <span class="n">signaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_flag</span>
+<span class="g g-Whitespace">    </span><span class="mi">580</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">signaled</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">581</span>                 <span class="n">signaled</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cond</span><span class="o">.</span><span class="n">wait</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">582</span>             <span class="k">return</span> <span class="n">signaled</span>
+<span class="g g-Whitespace">    </span><span class="mi">583</span> 
 
 <span class="nn">/usr/lib/python3.9/threading.py</span> in <span class="ni">wait</span><span class="nt">(self, timeout)</span>
 <span class="g g-Whitespace">    </span><span class="mi">310</span>         <span class="k">try</span><span class="p">:</span>    <span class="c1"># restore state no matter what (e.g., KeyboardInterrupt)</span>
@@ -1677,6 +1680,15 @@ best_parameter: {}
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Klasifikassi Teks Word2Vec</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="psd-graph.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Graph</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div></div>
   
