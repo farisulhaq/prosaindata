@@ -166,6 +166,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="psd-uts.html">UTS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="psd-graph.html">Graph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="psd-pagerank.html">PageRank</a></li>
+<li class="toctree-l1"><a class="reference internal" href="psd-modelling-lsp.html">Latent semantic Analysis</a></li>
 </ul>
 
     </div>
@@ -436,7 +437,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-4c4c7cb0-3a39-4df4-806a-977d71f70150">
+  <div id="df-d5934b9a-c51d-4985-8038-9c590d81d403">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -520,7 +521,7 @@ document.write(`
 </table>
 <p>596 rows × 2 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-4c4c7cb0-3a39-4df4-806a-977d71f70150')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-d5934b9a-c51d-4985-8038-9c590d81d403')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -571,12 +572,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-4c4c7cb0-3a39-4df4-806a-977d71f70150 button.colab-df-convert');
+          document.querySelector('#df-d5934b9a-c51d-4985-8038-9c590d81d403 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-4c4c7cb0-3a39-4df4-806a-977d71f70150');
+          const element = document.querySelector('#df-d5934b9a-c51d-4985-8038-9c590d81d403');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -669,68 +670,68 @@ document.write(`
 <span class="g g-Whitespace">      </span><span class="mi">8</span> 
 <span class="g g-Whitespace">      </span><span class="mi">9</span> <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;best_parameter: </span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">best_params_</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/sklearn/model_selection/_search.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, groups, **fit_params)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_search.py</span> in <span class="ni">fit</span><span class="nt">(self, X, y, groups, **fit_params)</span>
 <span class="g g-Whitespace">    </span><span class="mi">872</span>                 <span class="k">return</span> <span class="n">results</span>
 <span class="g g-Whitespace">    </span><span class="mi">873</span> 
 <span class="ne">--&gt; </span><span class="mi">874</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_run_search</span><span class="p">(</span><span class="n">evaluate_candidates</span><span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">875</span> 
 <span class="g g-Whitespace">    </span><span class="mi">876</span>             <span class="c1"># multimetric is determined here because in the case of a callable</span>
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/sklearn/model_selection/_search.py</span> in <span class="ni">_run_search</span><span class="nt">(self, evaluate_candidates)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_search.py</span> in <span class="ni">_run_search</span><span class="nt">(self, evaluate_candidates)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1766</span>     <span class="k">def</span> <span class="nf">_run_search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">evaluate_candidates</span><span class="p">):</span>
 <span class="g g-Whitespace">   </span><span class="mi">1767</span><span class="w">         </span><span class="sd">&quot;&quot;&quot;Search n_iter candidates from param_distributions&quot;&quot;&quot;</span>
 <span class="ne">-&gt; </span><span class="mi">1768</span>         <span class="n">evaluate_candidates</span><span class="p">(</span>
 <span class="g g-Whitespace">   </span><span class="mi">1769</span>             <span class="n">ParameterSampler</span><span class="p">(</span>
 <span class="g g-Whitespace">   </span><span class="mi">1770</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">param_distributions</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_iter</span><span class="p">,</span> <span class="n">random_state</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">random_state</span>
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/sklearn/model_selection/_search.py</span> in <span class="ni">evaluate_candidates</span><span class="nt">(candidate_params, cv, more_results)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/model_selection/_search.py</span> in <span class="ni">evaluate_candidates</span><span class="nt">(candidate_params, cv, more_results)</span>
 <span class="g g-Whitespace">    </span><span class="mi">819</span>                     <span class="p">)</span>
 <span class="g g-Whitespace">    </span><span class="mi">820</span> 
 <span class="ne">--&gt; </span><span class="mi">821</span>                 <span class="n">out</span> <span class="o">=</span> <span class="n">parallel</span><span class="p">(</span>
 <span class="g g-Whitespace">    </span><span class="mi">822</span>                     <span class="n">delayed</span><span class="p">(</span><span class="n">_fit_and_score</span><span class="p">)(</span>
 <span class="g g-Whitespace">    </span><span class="mi">823</span>                         <span class="n">clone</span><span class="p">(</span><span class="n">base_estimator</span><span class="p">),</span>
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/sklearn/utils/parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/sklearn/utils/parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
 <span class="g g-Whitespace">     </span><span class="mi">61</span>             <span class="k">for</span> <span class="n">delayed_func</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span> <span class="ow">in</span> <span class="n">iterable</span>
 <span class="g g-Whitespace">     </span><span class="mi">62</span>         <span class="p">)</span>
 <span class="ne">---&gt; </span><span class="mi">63</span>         <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__call__</span><span class="p">(</span><span class="n">iterable_with_config</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">64</span> 
 <span class="g g-Whitespace">     </span><span class="mi">65</span> 
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/joblib/parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/joblib/parallel.py</span> in <span class="ni">__call__</span><span class="nt">(self, iterable)</span>
 <span class="g g-Whitespace">   </span><span class="mi">1096</span> 
 <span class="g g-Whitespace">   </span><span class="mi">1097</span>             <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="o">.</span><span class="n">retrieval_context</span><span class="p">():</span>
 <span class="ne">-&gt; </span><span class="mi">1098</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">retrieve</span><span class="p">()</span>
 <span class="g g-Whitespace">   </span><span class="mi">1099</span>             <span class="c1"># Make sure that we get a last message telling us we are done</span>
 <span class="g g-Whitespace">   </span><span class="mi">1100</span>             <span class="n">elapsed_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">_start_time</span>
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/joblib/parallel.py</span> in <span class="ni">retrieve</span><span class="nt">(self)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/joblib/parallel.py</span> in <span class="ni">retrieve</span><span class="nt">(self)</span>
 <span class="g g-Whitespace">    </span><span class="mi">973</span>             <span class="k">try</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">974</span>                 <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_backend</span><span class="p">,</span> <span class="s1">&#39;supports_timeout&#39;</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
 <span class="ne">--&gt; </span><span class="mi">975</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">timeout</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">))</span>
 <span class="g g-Whitespace">    </span><span class="mi">976</span>                 <span class="k">else</span><span class="p">:</span>
 <span class="g g-Whitespace">    </span><span class="mi">977</span>                     <span class="bp">self</span><span class="o">.</span><span class="n">_output</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">get</span><span class="p">())</span>
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/joblib/_parallel_backends.py</span> in <span class="ni">wrap_future_result</span><span class="nt">(future, timeout)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/joblib/_parallel_backends.py</span> in <span class="ni">wrap_future_result</span><span class="nt">(future, timeout)</span>
 <span class="g g-Whitespace">    </span><span class="mi">565</span>         <span class="n">AsyncResults</span><span class="o">.</span><span class="n">get</span> <span class="kn">from</span> <span class="nn">multiprocessing.</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="g g-Whitespace">    </span><span class="mi">566</span><span class="s2">         try:</span>
 <span class="ne">--&gt; </span><span class="mi">567</span><span class="s2">             return future.result(timeout=timeout)</span>
 <span class="g g-Whitespace">    </span><span class="mi">568</span><span class="s2">         except CfTimeoutError as e:</span>
 <span class="g g-Whitespace">    </span><span class="mi">569</span><span class="s2">             raise TimeoutError from e</span>
 
-<span class="nn">/usr/lib/python3.9/concurrent/futures/_base.py</span> in <span class="ni">result</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">439</span><span class="s2">                     return self.__get_result()</span>
-<span class="g g-Whitespace">    </span><span class="mi">440</span><span class="s2"> </span>
-<span class="ne">--&gt; </span><span class="mi">441</span><span class="s2">                 self._condition.wait(timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">442</span><span class="s2"> </span>
-<span class="g g-Whitespace">    </span><span class="mi">443</span><span class="s2">                 if self._state in [CANCELLED, CANCELLED_AND_NOTIFIED]:</span>
+<span class="nn">/usr/lib/python3.10/concurrent/futures/_base.py</span> in <span class="ni">result</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">451</span><span class="s2">                     return self.__get_result()</span>
+<span class="g g-Whitespace">    </span><span class="mi">452</span><span class="s2"> </span>
+<span class="ne">--&gt; </span><span class="mi">453</span><span class="s2">                 self._condition.wait(timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">454</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">455</span><span class="s2">                 if self._state in [CANCELLED, CANCELLED_AND_NOTIFIED]:</span>
 
-<span class="nn">/usr/lib/python3.9/threading.py</span> in <span class="ni">wait</span><span class="nt">(self, timeout)</span>
-<span class="g g-Whitespace">    </span><span class="mi">310</span><span class="s2">         try:    # restore state no matter what (e.g., KeyboardInterrupt)</span>
-<span class="g g-Whitespace">    </span><span class="mi">311</span><span class="s2">             if timeout is None:</span>
-<span class="ne">--&gt; </span><span class="mi">312</span><span class="s2">                 waiter.acquire()</span>
-<span class="g g-Whitespace">    </span><span class="mi">313</span><span class="s2">                 gotit = True</span>
-<span class="g g-Whitespace">    </span><span class="mi">314</span><span class="s2">             else:</span>
+<span class="nn">/usr/lib/python3.10/threading.py</span> in <span class="ni">wait</span><span class="nt">(self, timeout)</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span><span class="s2">         try:    # restore state no matter what (e.g., KeyboardInterrupt)</span>
+<span class="g g-Whitespace">    </span><span class="mi">319</span><span class="s2">             if timeout is None:</span>
+<span class="ne">--&gt; </span><span class="mi">320</span><span class="s2">                 waiter.acquire()</span>
+<span class="g g-Whitespace">    </span><span class="mi">321</span><span class="s2">                 gotit = True</span>
+<span class="g g-Whitespace">    </span><span class="mi">322</span><span class="s2">             else:</span>
 
 <span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
