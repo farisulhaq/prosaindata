@@ -576,7 +576,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_cloud_postgres</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;select * from &quot;sepal_width&quot;&#39;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">conn_cloud_postgres</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_cloud_postgres</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;select * from &quot;petal&quot;&#39;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">conn_cloud_postgres</span><span class="p">)</span>
 <span class="n">conn_cloud_postgres</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -589,7 +589,10 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><div>
+<div class="output text_html">
+  <div id="df-6b0b5a99-a338-4b5a-b887-26639d5cf76e">
+    <div class="colab-df-container">
+      <div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -608,69 +611,169 @@ document.write(`
     <tr style="text-align: right;">
       <th></th>
       <th>id</th>
-      <th>sepal_width</th>
+      <th>petallength</th>
+      <th>petalwidth</th>
+      <th>class</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
       <td>1</td>
-      <td>3.5</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>1</th>
       <td>2</td>
-      <td>3.0</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>2</th>
       <td>3</td>
-      <td>3.2</td>
+      <td>1.3</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>3</th>
       <td>4</td>
-      <td>3.1</td>
+      <td>1.5</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>4</th>
       <td>5</td>
-      <td>3.6</td>
+      <td>1.4</td>
+      <td>0.2</td>
+      <td>Iris-setosa</td>
     </tr>
     <tr>
       <th>...</th>
+      <td>...</td>
+      <td>...</td>
       <td>...</td>
       <td>...</td>
     </tr>
     <tr>
       <th>145</th>
       <td>146</td>
-      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.3</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
       <th>146</th>
       <td>147</td>
-      <td>2.5</td>
+      <td>5.0</td>
+      <td>1.9</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
       <th>147</th>
       <td>148</td>
-      <td>3.0</td>
+      <td>5.2</td>
+      <td>2.0</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
       <th>148</th>
       <td>149</td>
-      <td>3.4</td>
+      <td>5.4</td>
+      <td>2.3</td>
+      <td>Iris-virginica</td>
     </tr>
     <tr>
       <th>149</th>
       <td>150</td>
-      <td>3.0</td>
+      <td>5.1</td>
+      <td>1.8</td>
+      <td>Iris-virginica</td>
     </tr>
   </tbody>
 </table>
-<p>150 rows × 2 columns</p>
-</div></div></div>
+<p>150 rows × 4 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-6b0b5a99-a338-4b5a-b887-26639d5cf76e')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-6b0b5a99-a338-4b5a-b887-26639d5cf76e button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-6b0b5a99-a338-4b5a-b887-26639d5cf76e');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
 </div>
 </div>
 <div class="section" id="local-mysql">
@@ -805,25 +908,25 @@ document.write(`
 <h2>Local Sql-Server<a class="headerlink" href="#local-sql-server" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyodbc</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import pyodbc</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">conn_local_sqlserver</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-  <span class="s2">&quot;Driver={ODBC Driver 17 for SQL Server};&quot;</span>
-  <span class="s2">&quot;Server=farisulhaq\SQLEXPRESS;&quot;</span>
-  <span class="s2">&quot;Trusted_Connection=yes;&quot;</span>
-<span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># conn_local_sqlserver = pyodbc.connect(</span>
+<span class="c1">#   &quot;Driver={ODBC Driver 17 for SQL Server};&quot;</span>
+<span class="c1">#   &quot;Server=farisulhaq\SQLEXPRESS;&quot;</span>
+<span class="c1">#   &quot;Trusted_Connection=yes;&quot;</span>
+<span class="c1"># )</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_local_sqlserver</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM [prosain171].[dbo].[petal_width]&quot;</span><span class="p">,</span> <span class="n">con</span><span class="o">=</span><span class="n">conn_local_sqlserver</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df_local_sqlserver = pd.read_sql_query(&quot;SELECT * FROM [prosain171].[dbo].[petal_width]&quot;, con=conn_local_sqlserver)</span>
 <span class="c1"># conn_local_postgres.close()</span>
 </pre></div>
 </div>
@@ -831,7 +934,7 @@ document.write(`
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_local_sqlserver</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df_local_sqlserver</span>
 </pre></div>
 </div>
 </div>
@@ -1072,83 +1175,83 @@ document.write(`
 <h2>SSH<a class="headerlink" href="#ssh" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">_</span><span class="o">=</span> <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>sshtunnel
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># _= !pip install sshtunnel</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">logging</span>
-<span class="kn">import</span> <span class="nn">sshtunnel</span>
-<span class="kn">from</span> <span class="nn">sshtunnel</span> <span class="kn">import</span> <span class="n">SSHTunnelForwarder</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import logging</span>
+<span class="c1"># import sshtunnel</span>
+<span class="c1"># from sshtunnel import SSHTunnelForwarder</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ssh_host</span> <span class="o">=</span> <span class="s1">&#39;68.183.191.223&#39;</span>
-<span class="n">ssh_username</span> <span class="o">=</span> <span class="s1">&#39;prosaindata&#39;</span>
-<span class="n">ssh_password</span> <span class="o">=</span> <span class="s1">&#39;+jS+1Gw(U7dnVl32M1&#39;</span>
-<span class="n">database_username</span> <span class="o">=</span> <span class="s1">&#39;prosaindata&#39;</span>
-<span class="n">database_password</span> <span class="o">=</span> <span class="s1">&#39;+jS+1Gw(U7dnVl32M1&#39;</span>
-<span class="n">database_name</span> <span class="o">=</span> <span class="s1">&#39;prosaindata_db&#39;</span>
-<span class="n">localhost</span> <span class="o">=</span> <span class="s1">&#39;127.0.0.1&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># ssh_host = &#39;68.183.191.223&#39;</span>
+<span class="c1"># ssh_username = &#39;prosaindata&#39;</span>
+<span class="c1"># ssh_password = &#39;+jS+1Gw(U7dnVl32M1&#39;</span>
+<span class="c1"># database_username = &#39;prosaindata&#39;</span>
+<span class="c1"># database_password = &#39;+jS+1Gw(U7dnVl32M1&#39;</span>
+<span class="c1"># database_name = &#39;prosaindata_db&#39;</span>
+<span class="c1"># localhost = &#39;127.0.0.1&#39;</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">open_ssh_tunnel</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>  
-  <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-    <span class="n">sshtunnel</span><span class="o">.</span><span class="n">DEFAULT_LOGLEVEL</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span>
-  <span class="n">tunnel</span> <span class="o">=</span> <span class="n">SSHTunnelForwarder</span><span class="p">(</span>
-    <span class="p">(</span><span class="n">ssh_host</span><span class="p">,</span> <span class="mi">22</span><span class="p">),</span>
-    <span class="n">ssh_username</span> <span class="o">=</span> <span class="n">ssh_username</span><span class="p">,</span>
-    <span class="n">ssh_password</span> <span class="o">=</span> <span class="n">ssh_password</span><span class="p">,</span>
-    <span class="n">remote_bind_address</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span> <span class="mi">3306</span><span class="p">)</span>
-  <span class="p">)</span>
-  <span class="n">tunnel</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-  <span class="k">return</span> <span class="n">tunnel</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># def open_ssh_tunnel(verbose=False):  </span>
+<span class="c1">#   if verbose:</span>
+<span class="c1">#     sshtunnel.DEFAULT_LOGLEVEL = logging.DEBUG</span>
+<span class="c1">#   tunnel = SSHTunnelForwarder(</span>
+<span class="c1">#     (ssh_host, 22),</span>
+<span class="c1">#     ssh_username = ssh_username,</span>
+<span class="c1">#     ssh_password = ssh_password,</span>
+<span class="c1">#     remote_bind_address = (&#39;127.0.0.1&#39;, 3306)</span>
+<span class="c1">#   )</span>
+<span class="c1">#   tunnel.start()</span>
+<span class="c1">#   return tunnel</span>
 
-<span class="k">def</span> <span class="nf">close_ssh_tunnel</span><span class="p">(</span><span class="n">tunnel</span><span class="p">):</span>
-  <span class="n">tunnel</span><span class="o">.</span><span class="n">close</span>
+<span class="c1"># def close_ssh_tunnel(tunnel):</span>
+<span class="c1">#   tunnel.close</span>
 
-<span class="k">def</span> <span class="nf">mysql_connect</span><span class="p">(</span><span class="n">tunnel</span><span class="p">):</span>
-  <span class="n">connection</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connector</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span>
-    <span class="n">host</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
-    <span class="n">user</span><span class="o">=</span><span class="n">database_username</span><span class="p">,</span>
-    <span class="n">password</span><span class="o">=</span><span class="n">database_password</span><span class="p">,</span>
-    <span class="n">database</span><span class="o">=</span><span class="n">database_name</span><span class="p">,</span>
-    <span class="n">port</span><span class="o">=</span><span class="n">tunnel</span><span class="o">.</span><span class="n">local_bind_port</span>
-  <span class="p">)</span>
-  <span class="k">return</span> <span class="n">connection</span>
+<span class="c1"># def mysql_connect(tunnel):</span>
+<span class="c1">#   connection = mysql.connector.connect(</span>
+<span class="c1">#     host=&#39;127.0.0.1&#39;,</span>
+<span class="c1">#     user=database_username,</span>
+<span class="c1">#     password=database_password,</span>
+<span class="c1">#     database=database_name,</span>
+<span class="c1">#     port=tunnel.local_bind_port</span>
+<span class="c1">#   )</span>
+<span class="c1">#   return connection</span>
 
-<span class="k">def</span> <span class="nf">mysql_disconnect</span><span class="p">(</span><span class="n">connection</span><span class="p">):</span>
-  <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="c1"># def mysql_disconnect(connection):</span>
+<span class="c1">#   connection.close()</span>
 
-<span class="k">def</span> <span class="nf">run_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connection</span><span class="p">):</span>
-  <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
+<span class="c1"># def run_query(sql, connection):</span>
+<span class="c1">#   return pd.read_sql_query(sql, connection)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tunnel</span> <span class="o">=</span> <span class="n">open_ssh_tunnel</span><span class="p">()</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">mysql_connect</span><span class="p">(</span><span class="n">tunnel</span><span class="p">)</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">run_query</span><span class="p">(</span><span class="s2">&quot;SELECT * FROM sepal&quot;</span><span class="p">,</span> <span class="n">conn</span><span class="p">)</span>
-<span class="n">mysql_disconnect</span><span class="p">(</span><span class="n">tunnel</span><span class="p">)</span>
-<span class="n">close_ssh_tunnel</span><span class="p">(</span><span class="n">tunnel</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># tunnel = open_ssh_tunnel()</span>
+<span class="c1"># conn = mysql_connect(tunnel)</span>
+<span class="c1"># df = run_query(&quot;SELECT * FROM sepal&quot;, conn)</span>
+<span class="c1"># mysql_disconnect(tunnel)</span>
+<span class="c1"># close_ssh_tunnel(tunnel)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># df</span>
 </pre></div>
 </div>
 </div>

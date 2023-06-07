@@ -481,12 +481,12 @@ document.write(`
 <span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">drive</span> <span class="o">=</span> <span class="n">GoogleDrive</span><span class="p">(</span><span class="n">gauth</span><span class="p">)</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">your_module</span> <span class="o">=</span> <span class="n">drive</span><span class="o">.</span><span class="n">CreateFile</span><span class="p">({</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;1XuqdhvVPSaAqAXhYYhzFqQJBD3INE6nv&quot;</span><span class="p">})</span>
 
-<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/auth.py</span> in <span class="ni">authenticate_user</span><span class="nt">(clear_output)</span>
-<span class="g g-Whitespace">    </span><span class="mi">242</span>   <span class="k">if</span> <span class="ow">not</span> <span class="n">_check_adc</span><span class="p">(</span><span class="n">_CredentialType</span><span class="o">.</span><span class="n">USER</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">243</span>     <span class="k">if</span> <span class="n">use_auth_ephem</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">244</span>       <span class="n">_message</span><span class="o">.</span><span class="n">blocking_request</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">245</span>           <span class="s1">&#39;request_auth&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">246</span>           <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;auth_user_ephemeral&#39;</span><span class="p">},</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/auth.py</span> in <span class="ni">authenticate_user</span><span class="nt">(clear_output, project_id)</span>
+<span class="g g-Whitespace">    </span><span class="mi">279</span>   <span class="k">if</span> <span class="ow">not</span> <span class="n">_check_adc</span><span class="p">(</span><span class="n">_CredentialType</span><span class="o">.</span><span class="n">USER</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">280</span>     <span class="k">if</span> <span class="n">use_auth_ephem</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">281</span>       <span class="n">_message</span><span class="o">.</span><span class="n">blocking_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">282</span>           <span class="s1">&#39;request_auth&#39;</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">283</span>           <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;auth_user_ephemeral&#39;</span><span class="p">},</span>
 
 <span class="nn">/usr/local/lib/python3.10/dist-packages/google/colab/_message.py</span> in <span class="ni">blocking_request</span><span class="nt">(request_type, request, timeout_sec, parent)</span>
 <span class="g g-Whitespace">    </span><span class="mi">174</span>       <span class="n">request_type</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">expect_reply</span><span class="o">=</span><span class="kc">True</span>
@@ -520,17 +520,6 @@ document.write(`
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
-[nltk_data]   Unzipping tokenizers/punkt.zip.
-[nltk_data] Downloading package stopwords to /root/nltk_data...
-[nltk_data]   Unzipping corpora/stopwords.zip.
-</pre></div>
-</div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="crawling-twitter">
@@ -549,6 +538,7 @@ document.write(`
 <span class="n">access_token</span>    <span class="o">=</span> <span class="n">twitterApi</span><span class="p">[</span><span class="s1">&#39;access_token&#39;</span><span class="p">]</span>
 <span class="n">access_token_secret</span> <span class="o">=</span> <span class="n">twitterApi</span><span class="p">[</span><span class="s1">&#39;access_token_secret&#39;</span><span class="p">]</span>
 
+
 <span class="c1"># Membuat objek otentifikasi</span>
 <span class="n">authenticate</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">OAuthHandler</span><span class="p">(</span><span class="n">consumer_key</span><span class="p">,</span> <span class="n">consumer_secret</span><span class="p">)</span> 
     
@@ -562,7 +552,7 @@ document.write(`
 <span class="c1"># Mengekstrak 200 twit terakhir dari user Twitter</span>
 <span class="c1"># posts = api.user_timeline(screen_name=&quot;capres2024&quot;, count = 200, lang =&quot;en&quot;, tweet_mode=&quot;extended&quot;)</span>
 <span class="n">hashtag</span><span class="o">=</span><span class="s2">&quot;capres2024&quot;</span>
-<span class="n">limit</span><span class="o">=</span><span class="mi">200</span>
+<span class="n">limit</span><span class="o">=</span><span class="mi">300</span>
 <span class="n">posts</span> <span class="o">=</span> <span class="n">tweepy</span><span class="o">.</span><span class="n">Cursor</span><span class="p">(</span><span class="n">api</span><span class="o">.</span><span class="n">search_tweets</span><span class="p">,</span> <span class="n">q</span><span class="o">=</span><span class="n">hashtag</span><span class="o">+</span><span class="s1">&#39; -filter:tweets&#39;</span><span class="p">,</span> <span class="n">tweet_mode</span><span class="o">=</span><span class="s2">&quot;extended&quot;</span><span class="p">,</span> <span class="n">result_type</span><span class="o">=</span><span class="s1">&#39;mixed&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">(</span><span class="n">limit</span><span class="p">)</span>
 
 <span class="c1"># Membuat dataframe dengan kolom bernama Tweets </span>
@@ -575,7 +565,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-5eab1c1c-d8fa-4b1c-8127-76368bd4fb96">
+  <div id="df-f12554e2-5c25-45d2-9f04-7c6cf7276c71">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -621,15 +611,15 @@ document.write(`
     </tr>
     <tr>
       <th>3</th>
-      <td>@rekodarabima76 @maryshelparaiso ASN jgn nakal...</td>
-      <td>Jawa Timur, Indonesia</td>
-      <td>NkriRindu</td>
+      <td>RT @Ganjaran_app: Sifatnya yg dekat dgn anak2 ...</td>
+      <td></td>
+      <td>Markowsiego_</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>@sukabenar_ @maryshelparaiso Politik netralita...</td>
-      <td>Jawa Timur, Indonesia</td>
-      <td>NkriRindu</td>
+      <td>RT @Ganjaran_app: Sifatnya yg dekat dgn anak2 ...</td>
+      <td></td>
+      <td>BangunIni</td>
     </tr>
     <tr>
       <th>...</th>
@@ -638,40 +628,40 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>195</th>
-      <td>Prabowo meminta, agar Pemda Tanah Datar dan st...</td>
+      <th>295</th>
+      <td>"Saya kirim kuda ke Sumbar, tapi dengan syarat...</td>
       <td>bogor</td>
       <td>fauzardiansyah</td>
     </tr>
     <tr>
-      <th>196</th>
-      <td>Prabowo Subianro capres 2024 ini diketahui san...</td>
-      <td>jakarta</td>
-      <td>hanaaurelia9</td>
-    </tr>
-    <tr>
-      <th>197</th>
-      <td>Menhan Prabowo Subianto menghadiri gelaran Pac...</td>
-      <td>jakarta</td>
-      <td>hanaaurelia9</td>
-    </tr>
-    <tr>
-      <th>198</th>
-      <td>Menhan Prabowo Subianto menghadiri gelaran Pac...</td>
+      <th>296</th>
+      <td>Menteri Pertahanan Prabowo Subianto janji baka...</td>
       <td>bogor</td>
       <td>fauzardiansyah</td>
     </tr>
     <tr>
-      <th>199</th>
-      <td>Hadiri pacuan kuda di tanah minang, Prabowo me...</td>
-      <td>jakarta</td>
-      <td>hanaaurelia9</td>
+      <th>297</th>
+      <td>Prabowo ingin pemda Tanah Datar untuk terus me...</td>
+      <td>bogor</td>
+      <td>fauzardiansyah</td>
+    </tr>
+    <tr>
+      <th>298</th>
+      <td>”Saya sering berada di lapangan ini saat kecil...</td>
+      <td>bogor</td>
+      <td>fauzardiansyah</td>
+    </tr>
+    <tr>
+      <th>299</th>
+      <td>RT @idtodayco: Polling Yuk! Biar tidak ada rek...</td>
+      <td></td>
+      <td>AmsoriSor</td>
     </tr>
   </tbody>
 </table>
-<p>200 rows × 3 columns</p>
+<p>300 rows × 3 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-5eab1c1c-d8fa-4b1c-8127-76368bd4fb96')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-f12554e2-5c25-45d2-9f04-7c6cf7276c71')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -722,12 +712,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-5eab1c1c-d8fa-4b1c-8127-76368bd4fb96 button.colab-df-convert');
+          document.querySelector('#df-f12554e2-5c25-45d2-9f04-7c6cf7276c71 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-5eab1c1c-d8fa-4b1c-8127-76368bd4fb96');
+          const element = document.querySelector('#df-f12554e2-5c25-45d2-9f04-7c6cf7276c71');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -863,7 +853,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d7726d4a-b59f-45b0-87d0-e80380eb24ea">
+  <div id="df-ee6287b8-d1c6-41ee-b3e8-3e2597e3078c">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -921,21 +911,21 @@ document.write(`
     </tr>
     <tr>
       <th>3</th>
-      <td>Jaga Netralitas Untuk Ciptakan Suasana Kondusi...</td>
-      <td>Jaga Netralitas Untuk Ciptakan Suasana Kondusif</td>
-      <td>[jaga, netralitas, untuk, ciptakan, suasana, k...</td>
-      <td>[jaga, netralitas, ciptakan, suasana, kondusif]</td>
-      <td>[jaga, netralitas, ciptakan, suasana, kondusif]</td>
-      <td>jaga netralita ciptakan suasana kondusif</td>
+      <td>RT @Ganjaran_app: Sifatnya yg dekat dgn anak2 ...</td>
+      <td>RT  Sifatnya yg dekat dgn anak2 membuat  menda...</td>
+      <td>[rt, sifatnya, yg, dekat, dgn, anak2, membuat,...</td>
+      <td>[rt, sifatnya, yg, dgn, anak2, mendapatkn, 3, ...</td>
+      <td>[rt, sifatnya, yang, dengan, anak-anak, mendap...</td>
+      <td>rt sifatnya yang dengan anak-anak mendapatkan ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>Jaga Netralitas Untuk Ciptakan Suasana Kondusi...</td>
-      <td>Jaga Netralitas Untuk Ciptakan Suasana Kondusif</td>
-      <td>[jaga, netralitas, untuk, ciptakan, suasana, k...</td>
-      <td>[jaga, netralitas, ciptakan, suasana, kondusif]</td>
-      <td>[jaga, netralitas, ciptakan, suasana, kondusif]</td>
-      <td>jaga netralita ciptakan suasana kondusif</td>
+      <td>RT @Ganjaran_app: Sifatnya yg dekat dgn anak2 ...</td>
+      <td>RT  Sifatnya yg dekat dgn anak2 membuat  menda...</td>
+      <td>[rt, sifatnya, yg, dekat, dgn, anak2, membuat,...</td>
+      <td>[rt, sifatnya, yg, dgn, anak2, mendapatkn, 3, ...</td>
+      <td>[rt, sifatnya, yang, dengan, anak-anak, mendap...</td>
+      <td>rt sifatnya yang dengan anak-anak mendapatkan ...</td>
     </tr>
     <tr>
       <th>...</th>
@@ -947,55 +937,55 @@ document.write(`
       <td>...</td>
     </tr>
     <tr>
-      <th>195</th>
-      <td>Prabowo meminta, agar Pemda Tanah Datar dan st...</td>
-      <td>Prabowo meminta agar Pemda Tanah Datar dan sta...</td>
-      <td>[prabowo, meminta, agar, pemda, tanah, datar, ...</td>
-      <td>[prabowo, pemda, tanah, datar, stakeholder, su...</td>
-      <td>[prabowo, pemda, tanah, datar, stakeholder, su...</td>
-      <td>prabowo pemda tanah datar stakehold sumatera b...</td>
+      <th>295</th>
+      <td>"Saya kirim kuda ke Sumbar, tapi dengan syarat...</td>
+      <td>Saya kirim kuda ke Sumbar tapi dengan syarat p...</td>
+      <td>[saya, kirim, kuda, ke, sumbar, tapi, dengan, ...</td>
+      <td>[kirim, kuda, sumbar, syarat, pencinta, binata...</td>
+      <td>[kirim, kuda, sumbar, syarat, pencinta, binata...</td>
+      <td>kirim kuda sumbar syarat pencinta binatang dir...</td>
     </tr>
     <tr>
-      <th>196</th>
-      <td>Prabowo Subianro capres 2024 ini diketahui san...</td>
-      <td>Prabowo Subianro capres 2024 ini diketahui san...</td>
-      <td>[prabowo, subianro, capres, 2024, ini, diketah...</td>
-      <td>[prabowo, subianro, capres, 2024, menggemari, ...</td>
-      <td>[prabowo, subianro, capres, 2024, menggemari, ...</td>
-      <td>prabowo subianro capr 2024 menggemari olahraga...</td>
+      <th>296</th>
+      <td>Menteri Pertahanan Prabowo Subianto janji baka...</td>
+      <td>Menteri Pertahanan Prabowo Subianto janji baka...</td>
+      <td>[menteri, pertahanan, prabowo, subianto, janji...</td>
+      <td>[menteri, pertahanan, prabowo, subianto, janji...</td>
+      <td>[menteri, pertahanan, prabowo, subianto, janji...</td>
+      <td>menteri pertahanan prabowo subianto janji bibi...</td>
     </tr>
     <tr>
-      <th>197</th>
-      <td>Menhan Prabowo Subianto menghadiri gelaran Pac...</td>
-      <td>Menhan Prabowo Subianto menghadiri gelaran Pac...</td>
-      <td>[menhan, prabowo, subianto, menghadiri, gelara...</td>
-      <td>[menhan, prabowo, subianto, menghadiri, gelara...</td>
-      <td>[menhan, prabowo, subianto, menghadiri, gelara...</td>
-      <td>menhan prabowo subianto menghadiri gelaran pac...</td>
+      <th>297</th>
+      <td>Prabowo ingin pemda Tanah Datar untuk terus me...</td>
+      <td>Prabowo ingin pemda Tanah Datar untuk terus me...</td>
+      <td>[prabowo, ingin, pemda, tanah, datar, untuk, t...</td>
+      <td>[prabowo, pemda, tanah, datar, mengembangkan, ...</td>
+      <td>[prabowo, pemda, tanah, datar, mengembangkan, ...</td>
+      <td>prabowo pemda tanah datar mengembangkan olahra...</td>
     </tr>
     <tr>
-      <th>198</th>
-      <td>Menhan Prabowo Subianto menghadiri gelaran Pac...</td>
-      <td>Menhan Prabowo Subianto menghadiri gelaran Pac...</td>
-      <td>[menhan, prabowo, subianto, menghadiri, gelara...</td>
-      <td>[menhan, prabowo, subianto, menghadiri, gelara...</td>
-      <td>[menhan, prabowo, subianto, menghadiri, gelara...</td>
-      <td>menhan prabowo subianto menghadiri gelaran pac...</td>
+      <th>298</th>
+      <td>”Saya sering berada di lapangan ini saat kecil...</td>
+      <td>Saya sering berada di lapangan ini saat kecil ...</td>
+      <td>[saya, sering, berada, di, lapangan, ini, saat...</td>
+      <td>[lapangan, sumbar, kampung, halaman, prabowo, ...</td>
+      <td>[lapangan, sumbar, kampung, halaman, prabowo, ...</td>
+      <td>lapangan sumbar kampung halaman prabowo capres...</td>
     </tr>
     <tr>
-      <th>199</th>
-      <td>Hadiri pacuan kuda di tanah minang, Prabowo me...</td>
-      <td>Hadiri pacuan kuda di tanah minang Prabowo men...</td>
-      <td>[hadiri, pacuan, kuda, di, tanah, minang, prab...</td>
-      <td>[hadiri, pacuan, kuda, tanah, minang, prabowo,...</td>
-      <td>[hadiri, pacuan, kuda, tanah, minang, prabowo,...</td>
-      <td>hadiri pacuan kuda tanah minang prabowo olahra...</td>
+      <th>299</th>
+      <td>RT @idtodayco: Polling Yuk! Biar tidak ada rek...</td>
+      <td>RT  Polling Yuk Biar tidak ada rekayasa di ant...</td>
+      <td>[rt, polling, yuk, biar, tidak, ada, rekayasa,...</td>
+      <td>[rt, polling, yuk, biar, rekayasa, rakyat, ind...</td>
+      <td>[rt, polling, yuk, biar, rekayasa, rakyat, ind...</td>
+      <td>rt poll yuk biar rekayasa rakyat indonesiapili...</td>
     </tr>
   </tbody>
 </table>
-<p>200 rows × 6 columns</p>
+<p>300 rows × 6 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-d7726d4a-b59f-45b0-87d0-e80380eb24ea')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-ee6287b8-d1c6-41ee-b3e8-3e2597e3078c')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -1046,12 +1036,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-d7726d4a-b59f-45b0-87d0-e80380eb24ea button.colab-df-convert');
+          document.querySelector('#df-ee6287b8-d1c6-41ee-b3e8-3e2597e3078c button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-d7726d4a-b59f-45b0-87d0-e80380eb24ea');
+          const element = document.querySelector('#df-ee6287b8-d1c6-41ee-b3e8-3e2597e3078c');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1081,7 +1071,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-0a3ca5bd-8a75-42e5-ab90-383c26740799">
+  <div id="df-02bb3370-1935-4ad8-9ee1-14a9438a420b">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1119,41 +1109,41 @@ document.write(`
     </tr>
     <tr>
       <th>3</th>
-      <td>jaga netralita ciptakan suasana kondusif</td>
+      <td>rt sifatnya yang dengan anak-anak mendapatkan ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>jaga netralita ciptakan suasana kondusif</td>
+      <td>rt sifatnya yang dengan anak-anak mendapatkan ...</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
     </tr>
     <tr>
-      <th>195</th>
-      <td>prabowo pemda tanah datar stakehold sumatera b...</td>
+      <th>295</th>
+      <td>kirim kuda sumbar syarat pencinta binatang dir...</td>
     </tr>
     <tr>
-      <th>196</th>
-      <td>prabowo subianro capr 2024 menggemari olahraga...</td>
+      <th>296</th>
+      <td>menteri pertahanan prabowo subianto janji bibi...</td>
     </tr>
     <tr>
-      <th>197</th>
-      <td>menhan prabowo subianto menghadiri gelaran pac...</td>
+      <th>297</th>
+      <td>prabowo pemda tanah datar mengembangkan olahra...</td>
     </tr>
     <tr>
-      <th>198</th>
-      <td>menhan prabowo subianto menghadiri gelaran pac...</td>
+      <th>298</th>
+      <td>lapangan sumbar kampung halaman prabowo capres...</td>
     </tr>
     <tr>
-      <th>199</th>
-      <td>hadiri pacuan kuda tanah minang prabowo olahra...</td>
+      <th>299</th>
+      <td>rt poll yuk biar rekayasa rakyat indonesiapili...</td>
     </tr>
   </tbody>
 </table>
-<p>200 rows × 1 columns</p>
+<p>300 rows × 1 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-0a3ca5bd-8a75-42e5-ab90-383c26740799')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-02bb3370-1935-4ad8-9ee1-14a9438a420b')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -1204,12 +1194,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-0a3ca5bd-8a75-42e5-ab90-383c26740799 button.colab-df-convert');
+          document.querySelector('#df-02bb3370-1935-4ad8-9ee1-14a9438a420b button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-0a3ca5bd-8a75-42e5-ab90-383c26740799');
+          const element = document.querySelector('#df-02bb3370-1935-4ad8-9ee1-14a9438a420b');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -1239,7 +1229,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-933076e5-5866-4c3f-a68a-237292baf194">
+  <div id="df-0f95c2b8-0a5c-4b33-979d-ad9a6cdb737f">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -1277,41 +1267,41 @@ document.write(`
     </tr>
     <tr>
       <th>3</th>
-      <td>jaga netralita ciptakan suasana kondusif</td>
+      <td>rt sifatnya yang dengan anak-anak mendapatkan ...</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>asn netral pemilu 2024 tercipta pemilu damai</td>
+      <td>rt cnbc indonesia mencoba mencari capr popul m...</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
     </tr>
     <tr>
-      <th>107</th>
-      <td>semoga olahraga berkuda berkembang pesat sumba...</td>
+      <th>157</th>
+      <td>anak muda joki berbakat kirim jakarta latih bi...</td>
     </tr>
     <tr>
-      <th>108</th>
-      <td>prabowo pemda tanah datar stakehold sumatera b...</td>
+      <th>158</th>
+      <td>peluang cak imin pendamp prabowo kontestasi pi...</td>
     </tr>
     <tr>
-      <th>109</th>
-      <td>prabowo subianro capr 2024 menggemari olahraga...</td>
+      <th>159</th>
+      <td>prabowo berharap olahraga berkuda berkembang p...</td>
     </tr>
     <tr>
-      <th>110</th>
-      <td>menhan prabowo subianto menghadiri gelaran pac...</td>
+      <th>160</th>
+      <td>menteri pertahanan prabowo subianto janji bibi...</td>
     </tr>
     <tr>
-      <th>111</th>
-      <td>hadiri pacuan kuda tanah minang prabowo olahra...</td>
+      <th>161</th>
+      <td>prabowo pemda tanah datar mengembangkan olahra...</td>
     </tr>
   </tbody>
 </table>
-<p>112 rows × 1 columns</p>
+<p>162 rows × 1 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-933076e5-5866-4c3f-a68a-237292baf194')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-0f95c2b8-0a5c-4b33-979d-ad9a6cdb737f')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -1362,12 +1352,12 @@ document.write(`
 
       <script>
         const buttonEl =
-          document.querySelector('#df-933076e5-5866-4c3f-a68a-237292baf194 button.colab-df-convert');
+          document.querySelector('#df-0f95c2b8-0a5c-4b33-979d-ad9a6cdb737f button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-933076e5-5866-4c3f-a68a-237292baf194');
+          const element = document.querySelector('#df-0f95c2b8-0a5c-4b33-979d-ad9a6cdb737f');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
